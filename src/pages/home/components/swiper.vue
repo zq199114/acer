@@ -9,10 +9,11 @@
       <!--<swiper-slide>I'm Slide 2</swiper-slide>-->
       <!-- Optional controls -->
       <div class="swiper-pagination"  slot="pagination"></div>
-      <!--<div class="swiper-button-prev" slot="button-prev"></div>-->
-      <!--<div class="swiper-button-next" slot="button-next"></div>-->
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
       <!--<div class="swiper-scrollbar"   slot="scrollbar"></div>-->
     </swiper>
+    <div class="bottom_arrow"></div>
   </div>
 </template>
 
@@ -38,15 +39,23 @@ export default {
         imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20171223103539.jpg'
       }],
       swiperOption: {
+        clickable: true,
         lazy: {
           loadPrevNext: true
         },
         // init: false,
         // notNextTick: true,
         autoplay: { delay: 3000, stopOnLastSlide: false, disableOnInteraction: true }, // 自动轮播
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
         pagination: {
-          el: '.swiper-pagination'
-          // bulletClass: 'my-bullet'
+          el: '.swiper-pagination',
+          clickable: true,
+          type: 'bullets',
+          bulletClass: 'my-bullet',
+          bulletActiveClass: 'my-bullet-active'
         },
         updateOnImagesReady: true,
         touchRatio: 1, // 触摸变慢
@@ -59,13 +68,54 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .my-bulle
-    display: inline-block
-    width: 20px
-    height: 10px
-    background: #fff
+  @import '~styles/mixin.scss'
   .banner
+    position: relative
+    height: auto
     width: 100%
     .swiper_img
       width: 100%
+    .swiper-pagination
+      width: 350px
+      bottom: 40px
+      left: auto
+      right: 40px
+      & /deep/ .my-bullet
+        display: inline-block
+        margin-right: 10px
+        width: 20px
+        height: 5px
+        background: #fff
+      & /deep/ .my-bullet-active
+        height: 10px
+        width: 30px
+        background: $greenlogo
+    .swiper-button-prev, .swiper-button-next
+      opacity: 0
+    &:hover
+      .swiper-button-prev , .swiper-button-next
+        opacity: 1
+      .swiper-button-prev
+        left: 110px
+        background: url(https://www.acer.com.cn/web/images/mbanner-prev.png) no-repeat
+        background-size: contain
+        &:hover
+          background: url("https://www.acer.com.cn/web/images/banner-prev2.png") no-repeat
+          background-size: contain
+      .swiper-button-next
+        background: url(https://www.acer.com.cn/web/images/mbanner-next.png) no-repeat
+        background-size: contain
+        right: 110px
+        &:hover
+          background: url("https://www.acer.com.cn/web/images/banner-next2.png") no-repeat
+          background-size: contain
+    .bottom_arrow
+      position: absolute
+      bottom: 0px
+      @include cl
+      width: 6%
+      height: 40px
+      background: url(https://gwcss.acer.com.cn/images/ban-bottom1.png) center bottom no-repeat
+      z-index: 10
+      background-size: 100% auto !important
 </style>

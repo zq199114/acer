@@ -98,7 +98,6 @@ export default {
         @include center
         .search_item_all
           display: inline-block
-          margin-top: 20px
           .search_item
             background: #eaeaea
             display: inline-block
