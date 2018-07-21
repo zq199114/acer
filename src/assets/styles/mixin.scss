@@ -39,7 +39,7 @@ $fc:#fff;
   transform: translateY(-50%);
 }
 
-//定位上下居中
+//定位左右居中
 @mixin cl {
   position: absolute;
   left: 50%;
@@ -68,4 +68,20 @@ $fc:#fff;
   display: flex;
   justify-content: $type;
 
+}
+
+// 位置底部箭头向上
+@mixin wab() {
+  bottom: 0;
+  border: 34px solid transparent;
+  border-bottom: 34px solid #fff;
+  width: 0;
+}
+
+// 位置顶部箭头向下
+@mixin wat() {
+  top: 0;
+  border: 34px solid transparent;
+  border-top: 34px solid #fff;
+  width: 0;
 }

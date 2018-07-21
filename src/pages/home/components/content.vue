@@ -1,10 +1,12 @@
 <template>
   <div class="content">
-    <Row class="row_item" :gutter="10">
-      <Col class="col_item" v-for="item in arr[0]" :lg="12" :md="12" :sm="12" :xs="24" :key="item.id">
+    <Row class="row_item">
+      <Col class="col_item" v-for="item in arr[0]" :lg="{span: 10, pull: 1, push: 1}" :md="12" :sm="12" :xs="24" :key="item.id">
         <img class="item_img" :src="item.imgUrl" alt="">
       </Col>
-      <i class="t_white"></i>
+      <Col class="b_white" :lg="24" :md="24" :sm="24" :xs="0">
+        <img src="https://gwcss.acer.com.cn/images/pro-fig1.png" alt="">
+      </Col>
     </Row>
     <Row class="werp">
       <Col class="werp_cen" :lg="{span:1}" :md="{span:1}" :sm="{span:1}" :xs="0">
@@ -24,7 +26,20 @@
       <Col class="col_item_t" :lg="12" :md="12" :sm="12" :xs="24">
         <img class="item_img_t" :src="arr[1][1].imgUrl" alt="">
       </Col>
-      <i class="b_white"></i>
+      <Col class="b_white" :lg="24" :md="24" :sm="24" :xs="0">
+        <img src="https://gwcss.acer.com.cn/images/pro-fig1.png" alt="">
+      </Col>
+      <Col class="t_white" :lg="24" :md="24" :sm="24" :xs="0">
+        <img src="https://gwcss.acer.com.cn/images/pro-fig2.png" alt="">
+      </Col>
+    </Row>
+    <Row class="fenge">
+      <Col class="fenge_item" :lg="24" :md="24" :sm="24" :xs="0">
+        <img src="https://gwcss.acer.com.cn/images/pro-fig3.png" alt="">
+      </Col>
+    </Row>
+    <Row class="row_bottom">
+      <Col class="row_bottom_item"><img class="row_bottom_img" :src="bottom_img.imgUrl" alt=""></Col>
     </Row>
   </div>
 </template>
@@ -83,25 +98,26 @@ export default {
 <style lang="sass" scoped>
 @import '~styles/mixin.scss'
 .content
-  padding: 40px
-  .row_item, .row_item_t
+  .row_item, .row_item_t, .row_bottom
     position: relative
     .t_white
+      //@include wab
       @include cl
-      bottom: 0
-      border: 20px solid transparent
-      border-bottom: 20px solid #fff
-      width: 0
-    .b_white
-      @include cl
+      width: 6%
       top: 0
-      border: 20px solid transparent
-      border-top: 20px solid #fff
-      width: 0
+      img
+        width: 100%
+    .b_white
+      //@include wat
+      @include cl
+      width: 6%
+      bottom: 0
+      img
+       width: 100%
     .col_item
       margin-top: 1.4%
     &, .col_item_t
-      .item_img, .item_img_t
+      .item_img, .item_img_t, .row_bottom_img
         width: 100%
       .iit
         margin-top: 3%
@@ -114,19 +130,21 @@ export default {
       width: 100%
       .rho
         @include center
-        width: 10px
-        height: 10px
+        width: 15px
+        height: 15px
         .rhox
           width: 100%
           height: 100%
           background: $greenfont
           transform: rotate(45deg)
-      // .rho
-      //   border: 10px solid transparent
-      //   border-bottom: 10px solid $greenfont
-      //   width: 0
-      // .rhox
-      //   border: 10px solid transparent
-      //   border-top: 10px solid $greenfont
-      // width: 0
+  .fenge
+    position: relative
+    padding-bottom: 5%
+    height: 0
+    width: 100%
+    .fenge_item
+      @include center
+      width: 2%
+      img
+        width: 100%
 </style>
