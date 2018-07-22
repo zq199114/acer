@@ -67,7 +67,7 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass" scoped type="text/sass">
   @import '~styles/mixin.scss'
   .banner
     position: relative
@@ -113,7 +113,7 @@ export default {
       position: absolute
       bottom: 0px
       @include cl
-      width: 6%
+      width: 4%
       height: 40px
       background: url(https://gwcss.acer.com.cn/images/ban-bottom1.png) center bottom no-repeat
       z-index: 10
