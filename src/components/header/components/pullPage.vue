@@ -12,13 +12,14 @@ export default {
 
 <style lang="sass" scoped>
 .all_product_pull
-  // background: rgba(255,255,255,0.95)
-  background: #000
-  position: fixed
-  top: 0
+  background: rgba(255,255,255,0.95)
+  position: absolute
+  height: 40px
+  top: 130px
   left: 0
   right: 0
   color: red
+  z-index: 10
 </style>
 <!--个人&家用产品-->
 <!--笔记本-->

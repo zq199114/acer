@@ -17,8 +17,7 @@
       <Col class="nav_logo" :lg="{span:2, offset: 1}" :md="{span:2, offset:1}"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
       <Col class="nav_item nav_item_shop" :lg="{span:2, offset:2}" :md="{span:2, offset:5}"><div>宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></div></Col>
       <Col class="all_product" :lg="{span:2}" :md="{span:2}">
-        <div>全部产品<Icon type="ios-keypad-outline" color="#78Bc27" size="22" class="ico"></Icon></div>
-        <all-product class="all_down_page"></all-product>
+        <div  @mouseover="show">全部产品<Icon type="ios-keypad-outline" color="#78Bc27" size="22" class="ico"></Icon></div>
       </Col>
       <Col class="nav_item" :lg="{span:1}" :md="{span:1}"><div>家用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
       <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}"><div>高端电竞</div></Col>
@@ -38,6 +37,7 @@
         <Icon type="ios-search-strong" size="30" class="search_ico" color="#5c5c5c"></Icon>
       </Col>
     </Row>
+    <all-product class="all_down_page"></all-product>
   </header>
 </template>
 
@@ -47,6 +47,16 @@ export default {
   name: 'mainHeader',
   components: {
     AllProduct
+  },
+  data () {
+    return {
+      showAllPro: false
+    }
+  },
+  methods: {
+    show () {
+      this.showAllPro = !this.showAllPro
+    }
   }
 }
 </script>
@@ -79,6 +89,7 @@ export default {
   .nav
     border-bottom: 1px solid #b8b8b8
     background: #fff
+    position: relative
     .nav_logo, .nav_item, .nav_item_shop, .nav_search_small, .nav_item_spl, .all_product
       line-height: 90px
     .nav_item, .nav_item_shop, .nav_item_spl, .all_product
@@ -130,8 +141,8 @@ export default {
       text-align: center
       .search_ico
         vertical-align: middle
-    .all_product
-      position: relative
+      // .all_product
+      // position: relative
       // .all_down_page
       //   // display: none
       //   position: absolute
