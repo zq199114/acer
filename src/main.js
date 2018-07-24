@@ -7,9 +7,12 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import 'styles/reset.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-
-// require styles
+import axios from 'axios'
+import './mock/index'
 import 'swiper/dist/css/swiper.css'
+
+Vue.prototype.$axios = axios
+// require styles
 
 Vue.use(VueAwesomeSwiper)
 

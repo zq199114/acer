@@ -17,9 +17,16 @@
       <Col class="nav_logo" :lg="{span:2, offset: 1}" :md="{span:2, offset:1}"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
       <Col class="nav_item nav_item_shop" :lg="{span:2, offset:2}" :md="{span:2, offset:5}"><div>宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></div></Col>
       <Col class="all_product" :lg="{span:2}" :md="{span:2}">
-        <div  @mouseover="show">全部产品<Icon type="ios-keypad-outline" color="#78Bc27" size="22" class="ico"></Icon></div>
+        <div class="all" @mouseover="showPullDown" @mouseout="showPullDown">
+          全部产品
+          <Icon type="ios-keypad-outline" color="#78Bc27" size="22" class="ico"></Icon>
+          <all-product  v-show="showAllPro"></all-product>
+        </div>
       </Col>
-      <Col class="nav_item" :lg="{span:1}" :md="{span:1}"><div>家用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
+      <Col class="nav_item domestic" :lg="{span:1}" :md="{span:1}">
+        <div>家用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div>
+        <uspull></uspull>
+      </Col>
       <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}"><div>高端电竞</div></Col>
       <Col class="nav_item" :lg="{span:1}" :md="{span:1}"><div>商用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
       <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}"><div>解决方案</div></Col>
@@ -37,16 +44,17 @@
         <Icon type="ios-search-strong" size="30" class="search_ico" color="#5c5c5c"></Icon>
       </Col>
     </Row>
-    <all-product class="all_down_page"></all-product>
   </header>
 </template>
 
 <script>
 import AllProduct from './components/pullPage'
+import uspull from './components/commonPulldown'
 export default {
   name: 'mainHeader',
   components: {
-    AllProduct
+    AllProduct,
+    uspull
   },
   data () {
     return {
@@ -54,7 +62,7 @@ export default {
     }
   },
   methods: {
-    show () {
+    showPullDown () {
       this.showAllPro = !this.showAllPro
     }
   }
@@ -104,8 +112,12 @@ export default {
         font-weight: 200
     .all_product
       margin-right: 30px
-      &:hover
-        color: $greenfont
+      position: static!important // 加了static之后子元素就不会在受父元素的宽度限制了
+      .all
+        &:hover
+          color: $greenfont
+    .domestic
+      position: relative
     .nav_item
       margin-right: 30px
       &:hover
@@ -138,22 +150,8 @@ export default {
             @include sc(12px, #5c5c5c)
             margin-top: 5px
     .nav_search_small
+      width: 23px
       text-align: center
       .search_ico
         vertical-align: middle
-      // .all_product
-      // position: relative
-      // .all_down_page
-      //   // display: none
-      //   position: absolute
-      //   top: 0
-      //   width: 100%
-      //   color: #000
-      /*&:hover*/
-        /*.all_down_page*/
-          /*display: block*/
-          /*position: absolute*/
-          /*top: 0*/
-          /*width: 100%*/
-          /*color: #000*/
 </style>
