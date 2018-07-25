@@ -21,10 +21,10 @@
     <Row class="footer-bottom">
       <Col class="footer-left" :lg="12">
         <Col class="bot-item" :lg="{span: 5, offset: 1}">© 2017 Acer Inc.</Col>
-        <Col class="bot-item" :lg="{span: 21, pull: 1, offset: 1}" :md="24" :sm="24" :xs="0">此网页最好使用IE9 浏览器、谷歌浏览器、苹果浏览器和其他新式浏览器进行浏览。</Col>
+        <Col class="bot-item" :lg="{span: 21, offset: 1}" :md="24" :sm="24" :xs="0">此网页最好使用IE9 浏览器、谷歌浏览器、苹果浏览器和其他新式浏览器进行浏览。</Col>
         <Col class="bot-item" :lg="{span: 6, push: 1}" :md="{span: 8, push: 3}" :sm="{span: 9, push: 3}">沪ICP备09096122号&nbsp;|</Col>
         <Col class="bot-item" :lg="{span: 9, push: 1}" :md="{span: 8}" :sm="{span: 9}"><img src="https://www.acer.com.cn/web/images/record.png" alt="">&nbsp;沪公网安备 31011202006996号</Col>
-        <Col class="bot-item" :lg="{span: 9, pull: 2}" :md="{span: 8, pull: 4}" :sm="{span: 6, pull: 3}" :xs="0">站长统计</Col>
+        <Col class="bot-item" :lg="{span: 9, push: 1}" :md="{span: 8, pull: 4}" :sm="{span: 6, pull: 3}" :xs="0">站长统计</Col>
       </Col>
       <Col class="footer-right" :lg="12">
         <Col class="share">
@@ -153,8 +153,6 @@ export default {
         line-height: 40px
       .qr-code
         height: auto
-        margin: 0 auto
-        // width: 87px
         width: 35%
         .qr-img
           border: 3px solid #fff
@@ -166,7 +164,7 @@ export default {
   .footer-bottom
     .footer-left
       .bot-item
-        text-align: center
+        text-align: left
         color: #b2b2b2
         line-height: 30px
     .footer-right
@@ -175,4 +173,12 @@ export default {
       color: #b2b2b2
       .sh-img
         margin-right: 20px
+  @media only screen and (max-width: 768px)
+    .qr-code
+      margin: 0 auto
+  @media only screen and (max-width: 1200px)
+    .footer-bottom
+      .footer-left
+        .bot-item
+          text-align: center
 </style>
