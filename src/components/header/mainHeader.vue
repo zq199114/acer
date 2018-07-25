@@ -14,24 +14,27 @@
       </Col>
     </Row>
     <Row class="nav">
-      <Col class="nav_logo" :lg="{span:2, offset: 1}" :md="{span:2, offset:1}"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
-      <Col class="nav_item nav_item_shop" :lg="{span:2, offset:2}" :md="{span:2, offset:5}"><div>宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></div></Col>
-      <Col class="all_product" :lg="{span:2}" :md="{span:2}">
+      <Col class="nav_logo" :lg="{span:2, offset: 1}" :md="{span:2, offset:1}" :sm="0" :xs="0"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
+      <Col class="nav_item nav_item_shop" :lg="{span:2, offset:2}" :md="{span:2, offset:5}" :sm="0" :xs="0"><div>宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></div></Col>
+      <Col class="all_product" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">
         <div class="all" @mouseover="showPullDown" @mouseout="showPullDown">
           全部产品
           <Icon type="ios-keypad-outline" color="#78Bc27" size="22" class="ico"></Icon>
           <all-product  v-show="showAllPro"></all-product>
         </div>
       </Col>
-      <Col class="nav_item domestic" :lg="{span:1}" :md="{span:1}">
-        <div>家用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div>
-        <uspull></uspull>
+      <Col class="nav_item domestic" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0">
+        <div @mouseover="showDomestic" @mouseout="showDomestic">
+          家用
+          <Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon>
+          <uspull v-show="showDom"></uspull>
+        </div>
       </Col>
-      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}"><div>高端电竞</div></Col>
-      <Col class="nav_item" :lg="{span:1}" :md="{span:1}"><div>商用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
-      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}"><div>解决方案</div></Col>
-      <Col class="nav_item" :lg="{span:2}" :md="{span:2}"><div>服务支持<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
-      <Col class="nav_search" :lg="{span:4}" :md="{span:0}">
+      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>高端电竞</div></Col>
+      <Col class="nav_item" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>商用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
+      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>解决方案</div></Col>
+      <Col class="nav_item" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><div>服务支持<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
+      <Col class="nav_search" :lg="{span:4}" :md="{span:0}" :sm="0" :xs="0">
         <div class="search">
           <div class="search_item_all">
             <input class="search_item" type="text" placeholder="acer 4750G">
@@ -40,30 +43,37 @@
           </div>
         </div>
       </Col>
-      <Col class="nav_search_small" :lg="{span:0}" :md="{span:1}">
+      <Col class="nav_search_small" :lg="{span:0}" :md="{span:1}" :sm="0" :xs="0">
         <Icon type="ios-search-strong" size="30" class="search_ico" color="#5c5c5c"></Icon>
       </Col>
     </Row>
+    <m-nav></m-nav>
   </header>
 </template>
 
 <script>
 import AllProduct from './components/pullPage'
 import uspull from './components/commonPulldown'
+import mNav from './components/mNav'
 export default {
   name: 'mainHeader',
   components: {
     AllProduct,
-    uspull
+    uspull,
+    mNav
   },
   data () {
     return {
-      showAllPro: false
+      showAllPro: false,
+      showDom: false
     }
   },
   methods: {
     showPullDown () {
       this.showAllPro = !this.showAllPro
+    },
+    showDomestic () {
+      this.showDom = !this.showDom
     }
   }
 }

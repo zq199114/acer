@@ -1,12 +1,12 @@
 <template>
   <footer class="footer">
     <Row class="footer-top">
-      <Col class="list" :lg="{span: 3, offset: 1}" :mg="{span: 3, offset: 1}" :sm="{span: 3, offset: 1}" v-for="(list, index) in footList" :key="index">
+      <Col class="list" :lg="{span: 3, offset: 1}" :mg="{span: 3, offset: 1}" :sm="{span: 3, offset: 1}" :xs="0" v-for="(list, index) in footList" :key="index">
         <ul>
           <li class="item" v-for="(item, key) of list" :key="key">{{item.desc}}</li>
         </ul>
       </Col>
-      <Col class="subscribe" :lg="{span: 6, offset: 1}" :mg="{span: 6, offset: 1}" :sm="{span: 6, offset: 1}">
+      <Col class="subscribe" :lg="{span: 6, offset: 1}" :mg="{span: 6, offset: 1}" :sm="{span: 6, offset: 1}" :xs="{span: 22, offset:2}">
         <div class="title">订阅电子简报</div>
         <div class="login">
           <input type="text" placeholder="用电子邮件登陆···"><button>注册</button>
@@ -152,7 +152,10 @@ export default {
         color: #999
         line-height: 40px
       .qr-code
-        width: 87px
+        height: auto
+        margin: 0 auto
+        // width: 87px
+        width: 35%
         .qr-img
           border: 3px solid #fff
           width: 100%
