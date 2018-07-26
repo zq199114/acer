@@ -107,7 +107,7 @@ export default {
 @import '~styles/mixin.scss'
 .content
   .row_item, .row_item_t, .row_bottom
-    padding: 0 1%
+    padding: 0
     position: relative
     .t_white
       //@include wab
@@ -164,4 +164,8 @@ export default {
       width: 2%
       img
         width: 100%
+@media only screen and (min-width: 768px)
+  .content
+    .row_item, .row_item_t
+      padding: 0 1%
 </style>

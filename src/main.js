@@ -10,6 +10,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import axios from 'axios'
 import './mock/index'
 import 'swiper/dist/css/swiper.css'
+import './config/rem'
 
 Vue.prototype.$axios = axios
 // require styles

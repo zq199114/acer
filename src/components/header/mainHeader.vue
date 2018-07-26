@@ -26,8 +26,8 @@
       <Col class="nav_item domestic" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0">
         <div @mouseover="showDomestic" @mouseout="showDomestic">
           家用
-          <Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon>
           <uspull v-show="showDom"></uspull>
+          <Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon>
         </div>
       </Col>
       <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>高端电竞</div></Col>

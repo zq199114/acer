@@ -1,12 +1,22 @@
 <template>
   <footer class="footer">
     <Row class="footer-top">
-      <Col class="list" :lg="{span: 3, offset: 1}" :mg="{span: 3, offset: 1}" :sm="{span: 3, offset: 1}" :xs="0" v-for="(list, index) in footList" :key="index">
+      <Col class="list" :lg="{span: 3, offset: 1}" :mg="{span: 3, offset: 1}" :sm="{span: 3, offset: 1}" :xs="0" v-for="(list, index) of footList" :key="index">
         <ul>
           <li class="item" v-for="(item, key) of list" :key="key">{{item.desc}}</li>
         </ul>
       </Col>
-      <Col class="subscribe" :lg="{span: 6, offset: 1}" :mg="{span: 6, offset: 1}" :sm="{span: 6, offset: 1}" :xs="{span: 22, offset:2}">
+      <Col class="m_list" :lg="0" :mg="0" :sm="0" :xs="24" v-for="(item, key, index) of footList" :key="index">
+        <!--slice返回指定区域的数组-->
+        <div class="m_list_item" @click="showBottomItem(key)">
+          {{item[0].desc}}
+          <Icon class="down" type="chevron-down"></Icon>
+          <div class="m_list_item_children" v-show="showBotlist === key">
+            <div class="m_list_item_children_list" v-for="(ite, key) in item.slice(1)" :key="key">{{ite.desc}}</div>
+          </div>
+        </div>
+      </Col>
+      <Col class="subscribe" :lg="{span: 6, offset: 1}" :mg="{span: 6, offset: 1}" :sm="{span: 6, offset: 1}" :xs="{span: 24}">
         <div class="title">订阅电子简报</div>
         <div class="login">
           <input type="text" placeholder="用电子邮件登陆···"><button>注册</button>
@@ -38,8 +48,11 @@
 </template>
 
 <script>
+// import mFooter from './components/mFooter'
 export default {
   name: 'mainFooter',
+  components: {
+  },
   data () {
     return {
       footList: {
@@ -95,7 +108,17 @@ export default {
           id: '3',
           desc: '法律声明'
         }]
+      },
+      showBotlist: ''
+    }
+  },
+  methods: {
+    showBottomItem (flag) {
+      if (flag === this.showBotlist) {
+        this.showBotlist = ''
+        return
       }
+      this.showBotlist = flag
     }
   }
 }
@@ -161,6 +184,23 @@ export default {
           white-space: nowrap
           color: #b2b2b2
           line-height: 25px
+  .m_list
+    line-height: 58px
+    // height: 58px
+    padding: 0 5%
+    border-bottom: 1px solid #3b393a
+    color: #fff
+    .m_list_item
+      color: #acacac
+      .down
+        float: right
+        margin-top: 25px
+        color: #474747
+      .m_list_item_children
+        border-top: 1px solid #3b393a
+        .m_list_item_children_list
+          line-height: 50px
+          font-size: 13px
   .footer-bottom
     .footer-left
       .bot-item
@@ -173,10 +213,19 @@ export default {
       color: #b2b2b2
       .sh-img
         margin-right: 20px
-  @media only screen and (max-width: 768px)
-    .qr-code
-      margin: 0 auto
-  @media only screen and (max-width: 1200px)
+@media only screen and (max-width: 768px)
+  .footer
+    .footer-top
+      .subscribe
+        .item, .title, .login, .tips
+          width: 100%
+          padding-left: 5%
+        .title
+          color: #acacac
+        .qr-code
+          margin: 0 auto
+@media only screen and (max-width: 1200px)
+  .footer
     .footer-bottom
       .footer-left
         .bot-item

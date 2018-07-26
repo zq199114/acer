@@ -65,6 +65,8 @@ export default {
     background: #fff
     position: absolute
     top: 60px
+    left: 0
+    right: 0
     .m_nav_list, .search
       border-top: 1px solid #b8b8b8
       padding: 0 4%
