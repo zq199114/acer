@@ -121,29 +121,29 @@ export default {
   z-index: 99
   position: absolute
   background: rgba(255,255,255,0.9)
-  left: -10px
-  width: 200px
-  top: 90px
+  left: -0.1rem
+  width: 2rem
+  top: 0.9rem
   .menu
     .menu_item
-      line-height: 30px
-      @include sc(14px, #3d3f3e)
+      line-height: 0.3rem
+      @include sc(0.14rem, #3d3f3e)
       font-weight: 600
-      line-height: 45px
-      padding-left: 20px
+      line-height: 0.45rem
+      padding-left: 0.2rem
       .arrow
         float: right
-        margin-top: 17px
-        margin-right: 10px
+        margin-top: 0.17rem
+        margin-right: 0.1rem
         font-weight: 400
         color: #b2b2b2
       .children // 递归组件样式
-        width: 200px
+        width: 2rem
         height: 100%
         .children-item
-          top: -1px
+          top: -0.01rem
           left: 100%
-          min-height: 180px
+          min-height: 1.8rem
           .menu
             .menu_item
               font-weight: 200

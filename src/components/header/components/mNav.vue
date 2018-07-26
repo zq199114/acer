@@ -48,39 +48,39 @@ export default {
   position: relative
   .m_nav_logo
     .m_nav_bar
-      height: 60px
-      line-height: 60px
+      height: 0.6rem
+      line-height: 0.6rem
       text-align: right
       .ico
-        font-size: 25px
+        font-size: 0.25rem
         font-weight: 700
         color: #666666
-        margin-right: 10px
+        margin-right: 0.1rem
       .logo
-        width: 98px
+        width: 0.98rem
         img
           width: 100%
   .m_nav_menu
     z-index: 99
     background: #fff
     position: absolute
-    top: 60px
+    top: 0.6rem
     left: 0
     right: 0
     .m_nav_list, .search
-      border-top: 1px solid #b8b8b8
+      border-top: 0.01rem solid #b8b8b8
       padding: 0 4%
       .m_nav_item, .search_on
-        height: 58px
-        line-height: 58px
+        height: 0.58rem
+        line-height: 0.58rem
       input
-        padding-left: 10px
+        padding-left: 0.1rem
         height: 50%
         width: 92%
         background: #eaeaea
       .search_ico
         text-align: center
-        font-size: 27px
+        font-size: 0.27rem
         height: 50%
         width: 8%
         background: #eaeaea

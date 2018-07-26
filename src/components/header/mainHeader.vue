@@ -86,42 +86,42 @@ export default {
    background: #272727
    color: #fff
    .bar_item, .bar_middle
-     @include font(12px, 40px)
+     @include font(0.12rem, 0.40rem)
      .co_ite
        text-align: left
-       margin: 15px
+       margin: 0.15rem
      .arr
        text-align: left
-       margin-left: 3px
+       margin-left: 0.03rem
    .bar_middle
      text-align: right
      .contact_way
    .bar_right
-     @include font(12px, 40px)
+     @include font(0.12rem, 0.4rem)
      text-align: right
      .login
       text-align: right
-      @include sc(15px, #fff)
+      @include sc(0.15rem, #fff)
       .log
-        margin-left: 10px
+        margin-left: 0.10rem
   .nav
-    border-bottom: 1px solid #b8b8b8
+    border-bottom: 0,01rem solid #b8b8b8
     background: #fff
     position: relative
     .nav_logo, .nav_item, .nav_item_shop, .nav_search_small, .nav_item_spl, .all_product
-      line-height: 90px
+      line-height: 0.9rem
     .nav_item, .nav_item_shop, .nav_item_spl, .all_product
-      margin-right: 20px
-      @include sc(18px, #1a1a1a)
+      margin-right: 0.2rem
+      @include sc(0.18rem, #1a1a1a)
       white-space: nowrap
       .ico, .ico_down
-        margin-left: 10px
+        margin-left: 0.1rem
         vertical-align: middle
         font-weight: 700
       .ico_down
         font-weight: 200
     .all_product
-      margin-right: 30px
+      margin-right: 0.3rem
       position: static!important // 加了static之后子元素就不会在受父元素的宽度限制了
       .all
         &:hover
@@ -129,16 +129,16 @@ export default {
     .domestic
       position: relative
     .nav_item
-      margin-right: 30px
+      margin-right: 0.3rem
       &:hover
         color: $greenfont
     .nav_item_spl
-      margin-right: 35px
+      margin-right: 0.35rem
     .nav_search
       white-space: nowrap
       height: 90px
-      border-left: 1px solid #b8b8b8
-      border-right: 1px solid #b8b8b8
+      border-left: 0.01rem solid #b8b8b8
+      border-right: 0.01rem solid #b8b8b8
       position: relative
       .search
         // padding: 0 10px 0 10px
@@ -148,19 +148,19 @@ export default {
           .search_item
             background: #eaeaea
             display: inline-block
-            @include wh(160px, 35px)
+            @include wh(1.6rem, 0.35rem)
             padding: 0 10px
           .smal_ico
             display: inline-block
-            width: 22.5px
-            height: 34.5px
+            width: 0.225rem
+            height: 0.345rem
             vertical-align: middle
-            margin-left: 10px
+            margin-left: 0.10rem
           .desc
-            @include sc(12px, #5c5c5c)
-            margin-top: 5px
+            @include sc(0.12rem, #5c5c5c)
+            margin-top: 0.05rem
     .nav_search_small
-      width: 23px
+      width: 0.23rem
       text-align: center
       .search_ico
         vertical-align: middle

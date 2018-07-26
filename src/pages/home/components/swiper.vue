@@ -76,19 +76,19 @@ export default {
     .swiper_img
       width: 100%
     .swiper-pagination
-      width: 350px
-      bottom: 40px
+      width: 3.5rem
+      bottom: 0.4rem
       left: auto
-      right: 40px
+      right: 0.4rem
       & /deep/ .my-bullet
         display: inline-block
-        margin-right: 10px
-        width: 20px
-        height: 5px
+        margin-right: 0.1rem
+        width: 0.2rem
+        height: 0.05rem
         background: #fff
       & /deep/ .my-bullet-active
-        height: 10px
-        width: 30px
+        height: 0.1rem
+        width: 0.3rem
         background: $greenlogo
     .swiper-button-prev, .swiper-button-next
       opacity: 0
@@ -96,7 +96,7 @@ export default {
       .swiper-button-prev , .swiper-button-next
         opacity: 1
       .swiper-button-prev
-        left: 110px
+        left: 1.1rem
         background: url(https://www.acer.com.cn/web/images/mbanner-prev.png) no-repeat
         background-size: contain
         &:hover
@@ -105,7 +105,7 @@ export default {
       .swiper-button-next
         background: url(https://www.acer.com.cn/web/images/mbanner-next.png) no-repeat
         background-size: contain
-        right: 110px
+        right: 1.1rem
         &:hover
           background: url("https://www.acer.com.cn/web/images/banner-next2.png") no-repeat
           background-size: contain
@@ -114,7 +114,7 @@ export default {
       bottom: 0px
       @include cl
       width: 4%
-      height: 40px
+      height: 0.4rem
       background: url(https://gwcss.acer.com.cn/images/ban-bottom1.png) center bottom no-repeat
       z-index: 10
       background-size: 100% auto !important

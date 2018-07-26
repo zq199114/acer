@@ -32,11 +32,11 @@
       <Col class="footer-left" :lg="12">
         <Col class="bot-item" :lg="{span: 5, offset: 1}">© 2017 Acer Inc.</Col>
         <Col class="bot-item" :lg="{span: 21, offset: 1}" :md="24" :sm="24" :xs="0">此网页最好使用IE9 浏览器、谷歌浏览器、苹果浏览器和其他新式浏览器进行浏览。</Col>
-        <Col class="bot-item" :lg="{span: 6, push: 1}" :md="{span: 8, push: 3}" :sm="{span: 9, push: 3}">沪ICP备09096122号&nbsp;|</Col>
-        <Col class="bot-item" :lg="{span: 9, push: 1}" :md="{span: 8}" :sm="{span: 9}"><img src="https://www.acer.com.cn/web/images/record.png" alt="">&nbsp;沪公网安备 31011202006996号</Col>
-        <Col class="bot-item" :lg="{span: 9, push: 1}" :md="{span: 8, pull: 4}" :sm="{span: 6, pull: 3}" :xs="0">站长统计</Col>
+        <Col class="bot-item" :lg="{span: 6, push: 1}" :md="{span: 8, push: 3}" :sm="{span: 9, push: 1}">沪ICP备09096122号&nbsp;|</Col>
+        <Col class="bot-item" :lg="{span: 9, push: 1}" :md="{span: 8, push: 1}" :sm="{span: 9}"><img src="https://www.acer.com.cn/web/images/record.png" alt="">&nbsp;沪公网安备 31011202006996号</Col>
+        <Col class="bot-item" :lg="{span: 9, push: 1}" :md="{span: 8, pull: 1}" :sm="{span: 6, pull: 1}" :xs="0">站长统计</Col>
       </Col>
-      <Col class="footer-right" :lg="12">
+      <Col class="footer-right" :lg="12" :md="24">
         <Col class="share">
           分享到：<img class="sh-img" src="https://gwcss.acer.com.cn/images/sh-wechat.png" alt="微信">
           <img class="sh-img" src="https://gwcss.acer.com.cn/images/sh-sina.png" alt="微博">
@@ -48,7 +48,6 @@
 </template>
 
 <script>
-// import mFooter from './components/mFooter'
 export default {
   name: 'mainFooter',
   components: {
@@ -129,90 +128,97 @@ export default {
 .footer
   background: #272727
   .footer-top
-    padding-bottom: 20px
-    border-bottom: 1px solid #3e3e3e
+    padding-bottom: 0.2rem
+    border-bottom: 0.01rem solid #3e3e3e
     .list, .subscribe
       .item
-        margin-left: 10px
+        margin-left: 0.1rem
         color: #b2b2b2
-        font-size: 15px
-        line-height: 30px
+        font-size: 0.15rem
+        line-height: 0.30rem
         &:first-child
-          font-size: 17px
+          font-size: 0.17rem
           color: #fff
           font-weight: 700
-          line-height: 50px
+          line-height: 0.5rem
       .title
-        font-size: 17px
+        font-size: 0.17rem
         font-weight: 200
         color: #fff
-        line-height: 50px
+        line-height: 0.5rem
       .login
         white-space: nowrap
         width: 100%
         box-sizing: content-box
         input
           width: 60%
-          line-height: 40px
-          border: 1px solid #666
+          line-height: 0.4rem
+          border: 0.01rem solid #666
           background: #272727
-          height: 40px // 要给定高度否者，box-sizing不生效
+          height: 0.4rem // 要给定高度否者，box-sizing不生效
           display: inline-block
           color: #999
-          padding-left: 10px
-          font-size: 15px
+          padding-left: 0.1rem
+          font-size: 0.15rem
           &::placeholder
             font-family: $font-fm
         button
           display: inline-block
-          line-height: 40px
-          width: 60px
+          line-height: 0.4rem
+          width: 0.6rem
           background: $greenfont
           color: #fff
           font-family: $font-fm
-          border-radius: 0 5px 5px 0
+          border-radius: 0 0.05rem 0.05rem 0
       .tips
         color: #999
-        line-height: 40px
+        line-height: 0.4rem
       .qr-code
         height: auto
         width: 35%
         .qr-img
-          border: 3px solid #fff
+          border: 0.03rem solid #fff
           width: 100%
         i
           white-space: nowrap
           color: #b2b2b2
-          line-height: 25px
+          line-height: 0.25rem
   .m_list
-    line-height: 58px
+    line-height: 0.58rem
     // height: 58px
     padding: 0 5%
-    border-bottom: 1px solid #3b393a
+    border-bottom: 0.01rem solid #3b393a
     color: #fff
     .m_list_item
       color: #acacac
       .down
         float: right
-        margin-top: 25px
+        margin-top: 0.25rem
         color: #474747
       .m_list_item_children
-        border-top: 1px solid #3b393a
+        border-top: 0.01rem solid #3b393a
         .m_list_item_children_list
-          line-height: 50px
-          font-size: 13px
+          line-height: 0.5rem
+          font-size: 0.13rem
   .footer-bottom
+    // overflow: hidden
     .footer-left
+      font-size: .14rem
       .bot-item
         text-align: left
         color: #b2b2b2
-        line-height: 30px
+        line-height: 0.3rem
+        white-space: nowrap
     .footer-right
       text-align: center
-      line-height: 88.8px
+      // height: .88rem
+      line-height: 0.888rem
       color: #b2b2b2
-      .sh-img
-        margin-right: 20px
+      .share
+        font-size: .14rem
+        margin: 0 auto
+        .sh-img
+          margin-right: 0.2rem
 @media only screen and (max-width: 768px)
   .footer
     .footer-top
@@ -228,6 +234,10 @@ export default {
   .footer
     .footer-bottom
       .footer-left
+        font-size: .2rem
         .bot-item
           text-align: center
+      .footer-right
+        .share
+          font-size: .2rem
 </style>

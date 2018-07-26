@@ -39,39 +39,39 @@ export default {
 <style lang="sass" scoped>
 @import "~styles/mixin.scss"
 .all_product_pull
-  border-top: 1px solid #b8b8b8
+  border-top: 0.01rem solid #b8b8b8
   background: rgba(255,255,255,0.95)
   position: absolute
-  top: 90px
+  top: 0.9rem
   left: 0
   right: 0
   z-index: 99
   line-height: normal
   .title
-    @include sc(20px, #3d3f3e)
-    line-height: 70px
+    @include sc(0.2rem, #3d3f3e)
+    line-height: 0.7rem
     .tit_img
-      margin-right: 8px
+      margin-right: 0.08rem
   .smalltitle
-    padding-left: 60px
+    padding-left: 0.6rem
     // height: 100%
     display: table
     .itemtitle
-      @include sc(14px, #3d3f3e)
+      @include sc(0.14rem, #3d3f3e)
       font-weight: 600
       white-space: nowrap // 很神奇不换行的同时把空间给撑开了
       // vertical-align: top
       // 在table里margin无效
     .item_list
-      padding-left: 10px
+      padding-left: 0.1rem
       display: table-cell
       .item
-        @include sc(14px, #333)
+        @include sc(0.14rem, #333)
         display: inline-block
-        border-left: 1px solid #d4d4d4
-        padding-left: 10px
-        margin-right: 20px
-        margin-bottom: 30px
+        border-left: 0.01rem solid #d4d4d4
+        padding-left: 0.1rem
+        margin-right: 0.2rem
+        margin-bottom: 0.3rem
         font-family: 'Microsoft YaHei'
 </style>
 <!--个人&家用产品-->

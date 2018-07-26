@@ -147,8 +147,8 @@ export default {
       .rho
         @include cl
         top: 60%
-        width: 15px
-        height: 15px
+        width: 0.15rem
+        height: 0.15rem
         .rhox
           width: 100%
           height: 100%
