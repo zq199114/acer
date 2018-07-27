@@ -107,16 +107,19 @@ export default {
 @import '~styles/mixin.scss'
 .content
   .row_item, .row_item_t, .row_bottom
+    overflow: hidden
     padding: 0
     position: relative
     .t_white
+      padding: 0!important // important在这里加上是因为element.style这个节点因为无直接修改所以要加上!improtant
       //@include wab
       @include cl
       width: 6%
-      top: 2%
+      top: 1%
       img
         width: 100%
     .b_white
+      padding: 0!important
       //@include wat
       @include cl
       width: 6%

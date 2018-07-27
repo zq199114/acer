@@ -6,10 +6,10 @@
   let recalc = function () {
     var clientWidth = docEl.clientWidth
     if (!clientWidth) return
-    if (clientWidth >= 764) {
+    if (clientWidth >= 768) {
       docEl.style.fontSize = '100px'
     } else {
-      docEl.style.fontSize = 100 * (clientWidth / 764) + 'px'
+      docEl.style.fontSize = 100 * (clientWidth / 768) + 'px'
     }
   }
   if (!doc.addEventListener) return

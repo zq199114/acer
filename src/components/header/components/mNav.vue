@@ -47,6 +47,7 @@ export default {
 .m_nav
   position: relative
   .m_nav_logo
+    border-bottom: 0.01rem solid #b8b8b8
     .m_nav_bar
       height: 0.6rem
       line-height: 0.6rem
@@ -70,6 +71,7 @@ export default {
     .m_nav_list, .search
       border-top: 0.01rem solid #b8b8b8
       padding: 0 4%
+      font-size: .2rem
       .m_nav_item, .search_on
         height: 0.58rem
         line-height: 0.58rem
@@ -86,4 +88,50 @@ export default {
         background: #eaeaea
         vertical-align: middle
         color: #666666
+  @media only screen and (max-width: 768px)
+    .m_nav
+      position: relative
+    .m_nav_logo
+      border-bottom: 0.01rem solid #b8b8b8
+      .m_nav_bar
+        height: 1rem
+        line-height: 1rem
+        text-align: right
+        .ico
+          font-size: .45rem
+          font-weight: 700
+          color: #666666
+          &:first-child
+            margin-right: .45rem
+        .logo
+          width: 1.8rem
+          img
+            width: 100%
+    .m_nav_menu
+      z-index: 99
+      background: #fff
+      position: absolute
+      top: 1rem
+      left: 0
+      right: 0
+      .m_nav_list, .search
+        border-top: 0.01rem solid #b8b8b8
+        padding: 0 4%
+        font-size: .3rem
+        .m_nav_item, .search_on
+          height: 1.1rem
+          line-height: 1.1rem
+        input
+          padding-left: 0.1rem
+          height: 60%
+          width: 92%
+          background: #eaeaea
+        .search_ico
+          text-align: center
+          font-size: 0.6rem
+          height: 60%
+          width: 8%
+          background: #eaeaea
+          vertical-align: middle
+          color: #666666
 </style>

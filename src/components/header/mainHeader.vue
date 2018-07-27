@@ -105,7 +105,7 @@ export default {
       .log
         margin-left: 0.10rem
   .nav
-    border-bottom: 0,01rem solid #b8b8b8
+    // border-bottom: 0.01rem solid #b8b8b8
     background: #fff
     position: relative
     .nav_logo, .nav_item, .nav_item_shop, .nav_search_small, .nav_item_spl, .all_product
@@ -146,6 +146,7 @@ export default {
         .search_item_all
           display: inline-block
           .search_item
+            font-size: .15rem
             background: #eaeaea
             display: inline-block
             @include wh(1.6rem, 0.35rem)

@@ -147,6 +147,7 @@ export default {
         color: #fff
         line-height: 0.5rem
       .login
+        font-size: .15rem
         white-space: nowrap
         width: 100%
         box-sizing: content-box
@@ -170,19 +171,22 @@ export default {
           color: #fff
           font-family: $font-fm
           border-radius: 0 0.05rem 0.05rem 0
+          font-size: .15rem
       .tips
         color: #999
         line-height: 0.4rem
+        font-size: .15rem
       .qr-code
         height: auto
-        width: 35%
+        width: 30%
         .qr-img
           border: 0.03rem solid #fff
           width: 100%
         i
           white-space: nowrap
           color: #b2b2b2
-          line-height: 0.25rem
+          line-height: 0.15rem
+          font-size: .15rem
   .m_list
     line-height: 0.58rem
     // height: 58px
@@ -191,15 +195,18 @@ export default {
     color: #fff
     .m_list_item
       color: #acacac
+      font-size: .3rem
+      line-height: 1rem
       .down
         float: right
-        margin-top: 0.25rem
+        margin-top: 0.35rem
         color: #474747
       .m_list_item_children
         border-top: 0.01rem solid #3b393a
         .m_list_item_children_list
-          line-height: 0.5rem
-          font-size: 0.13rem
+          line-height: 1rem
+          font-size: .29rem
+          font-weight: 200
   .footer-bottom
     // overflow: hidden
     .footer-left
@@ -228,8 +235,30 @@ export default {
           padding-left: 5%
         .title
           color: #acacac
+          font-size: .3rem
+          line-height: 1rem
+          font-weight: 500
+        .login
+          input
+            width: 75%
+            height: .8rem
+            &::placeholder
+              font-size: .28rem
+          button
+            height: .8rem
+            width: 1rem
+            font-size: .28rem
+        .tips
+          font-size: .28rem
+          line-height: .8rem
         .qr-code
           margin: 0 auto
+          i
+            display: block
+            width: 100%
+            font-size: .28rem
+            line-height: .4rem
+            text-align: center
 @media only screen and (max-width: 1200px)
   .footer
     .footer-bottom
