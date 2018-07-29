@@ -2,8 +2,8 @@
   <header class="top">
     <Row class="bar">
       <Col :lg="{span:5, offset:1}" :md="{span:6, offset:1}" :sm="0" :xs="0" class="bar_item">
-        <span class="co_ite">首页</span>
-        <span class="co_ite">资讯</span>
+        <router-link tag="span" to="/index" class="co_ite">首页</router-link>
+        <router-link tag="span" to="/news" class="co_ite">资讯</router-link>
         <span class="co_ite">社交平台 <Icon class="arr" size="9" type="chevron-down"></Icon></span>
       </Col>
       <Col :lg="{span:7, offset:6}" :md="{span:9, offset: 3}" :sm="0" :xs="0" class="bar_middle">

@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <home-swiper></home-swiper>
     <Row class="row_item" :gutter="10">
       <Col class="col_item" v-for="item in arr[0]" :lg="{span: 12}" :md="12" :sm="12" :xs="24" :key="item.id">
         <div class="hover_img">
@@ -53,8 +54,12 @@
 </template>
 
 <script>
+import homeSwiper from './swiper.vue'
 export default {
   name: 'homeContent',
+  components: {
+    homeSwiper
+  },
   data () {
     return {
       contentImg: [{
@@ -98,7 +103,6 @@ export default {
     }
   },
   mounted () {
-
   }
 }
 </script>
