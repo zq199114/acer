@@ -87,3 +87,19 @@ $headerpulldown: rgba(255,255,255,0.95);
   border-top: 34px solid #fff;
   width: 0;
 }
+
+//文字超出限制以省略号代替 单行
+@mixin noRellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 多行文字超出限制省略号代替
+@mixin Rellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; // 将对象作为盒子弹性伸缩模型显示
+  -webkit-line-clamp: 2; // 用来限制显示的文本行数
+  -webkit-box-orient: vertical;
+}

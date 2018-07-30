@@ -1,32 +1,123 @@
 <template>
 <div class="news">
   <Row class="news_list">
-    <Col class="news_breadcrumb" :lg="{span: 21, offset: 1}">
+    <Col class="news_breadcrumb" :lg="{span: 21, offset: 1}" :md="{span: 9, offset: 1}" :sm="{span: 9, offset: 1}">
       <div class="news_breadcrumb_box">
         <span class="bread">首页</span><span class="bread">></span><span class="bread">新闻列表</span>
       </div>
     </Col>
   </Row>
+  <Col>
+    <Row class="new_news" v-for="(item, index) in newsList" :key="index">
+      <Col class="news_area" :lg="{span: 22, offset: 1}">
+        <Col class="news_img" :lg="{span: index>0 ? 5:9}" :md="{span: index>0 ? 5:9}" :sm="{span: index>0 ? 5:9}">
+          <img :src="item.newsImg" alt="">
+        </Col>
+        <Col class="news_content" :lg="{span: index>0 ? 18:14, offset: 1}" :md="{span: index>0 ? 18:14, offset: 1}" :sm="{span: index>0 ? 18:14, offset: 1}">
+          <div class="content">
+            <div class="date">{{item.newsDate}}</div>
+            <div class="title">{{item.newsTitle}}</div>
+            <p class="desc">{{item.newsDesc}}</p>
+            <div class="more" v-if="index === 0">查看详情</div>
+          </div>
+        </Col>
+      </Col>
+    </Row>
+  </Col>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'news'
+  name: 'news',
+  data () {
+    return {
+      newsList: [],
+      larg: 0
+    }
+  },
+  computed: {
+    col (index) {
+      let larg = index > 0 ? 4 : 9
+      return larg
+    }
+  },
+  methods: {
+    getNews (res) {
+      if (res.status === 200) {
+        let data = res.data
+        this.newsList = data
+        console.log(this.newsList)
+      }
+    }
+  },
+  mounted () {
+    this.$axios.get('/news').then(res => this.getNews(res))
+  }
 }
 </script>
 
 <style lang="sass" scoped type="text/sass">
+@import "~styles/mixin"
 .news
   .news_list
+    margin-bottom: .5rem
     .news_breadcrumb
+      width: 90%
       font-size: .16rem
       color: #969696
       border-bottom: .01rem solid #d2d2d2
-      margin-bottom:  .2rem
-      height: 1rem
+      padding-bottom: .1rem
+      // height: 1rem
       .news_breadcrumb_box
         margin-top: .73rem
         .bread
           margin-right: .05rem
+  .new_news
+    .news_area
+      padding: .2rem 0
+      border-bottom: .01rem dashed #d2d2d2
+      width: 90%
+      .news_img
+        img
+          width: 100%
+      .news_content
+        .content
+          .date
+            border-left: .04rem solid $greenlogo
+            padding-left: .08rem
+            font-size: .25rem
+            color: #000
+          .title
+            font-size: .19rem
+            color: #000
+            margin-top: 3%
+            white-space: nowrap
+          .desc
+            @include Rellipsis
+            font-size: .17rem
+            color: #969696
+            margin-top: 3%
+            height: .4rem
+            line-height: .2rem
+  .new_news:first-child
+    .news_area
+        .content
+          .date
+            color: $greenfont
+          .title
+            margin-top: 4%
+            color: $greenlogo
+          .desc
+            margin-top: 4%
+            color: $greenfont
+          .more
+            font-size: .19rem
+            line-height: .35rem
+            color: $greenfont
+            padding-right: .3rem
+            display: inline-block
+            background: url("https://gwcss.acer.com.cn/images/con-more2.png") no-repeat center right
+            background-size: .15rem auto
+            margin-top: 14%
 </style>
