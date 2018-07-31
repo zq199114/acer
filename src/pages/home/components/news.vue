@@ -1,7 +1,7 @@
 <template>
 <div class="news">
   <Row class="news_list">
-    <Col class="news_breadcrumb" :lg="{span: 21, offset: 1}" :md="{span: 9, offset: 1}" :sm="{span: 9, offset: 1}">
+    <Col class="news_breadcrumb" :lg="{span: 21, offset: 1}" :md="{span: 9, offset: 1}" :sm="{span: 9, offset: 1}" :xs="{span: 9, offset: 1}">
       <div class="news_breadcrumb_box">
         <span class="bread">首页</span><span class="bread">></span><span class="bread">新闻列表</span>
       </div>
@@ -9,11 +9,11 @@
   </Row>
   <Col>
     <Row class="new_news" v-for="(item, index) in newsList" :key="index">
-      <Col class="news_area" :lg="{span: 22, offset: 1}">
-        <Col class="news_img" :lg="{span: index>0 ? 5:9}" :md="{span: index>0 ? 5:9}" :sm="{span: index>0 ? 5:9}">
+      <Col class="news_area" :lg="{span: 22, offset: 1}" :md="{span: 22, offset: 1}" :sm="{span: 22, offset: 1}" :xs="{span: 22, offset: 1}">
+        <Col class="news_img" :lg="{span: index>0 ? 5:9}" :md="{span: index>0 ? 5:9}" :sm="{span: index>0 ? 7:9}" :xs="{span: index>0 ? 9:24}">
           <img :src="item.newsImg" alt="">
         </Col>
-        <Col class="news_content" :lg="{span: index>0 ? 18:14, offset: 1}" :md="{span: index>0 ? 18:14, offset: 1}" :sm="{span: index>0 ? 18:14, offset: 1}">
+        <Col class="news_content" :lg="{span: index>0 ? 18:14, offset: 1}" :md="{span: index>0 ? 18:14, offset: 1}" :sm="{span: index>0 ? 16:14, offset: 1}" :xs="{span: index>0 ? 14:24, offset: index>0 ? 1:0}">
           <div class="content">
             <div class="date">{{item.newsDate}}</div>
             <div class="title">{{item.newsTitle}}</div>
@@ -92,32 +92,63 @@ export default {
             font-size: .19rem
             color: #000
             margin-top: 3%
-            white-space: nowrap
+            // white-space: nowrap
           .desc
             @include Rellipsis
             font-size: .17rem
             color: #969696
             margin-top: 3%
-            height: .4rem
+            // height: .4rem
             line-height: .2rem
-  .new_news:first-child
-    .news_area
-        .content
-          .date
-            color: $greenfont
-          .title
-            margin-top: 4%
-            color: $greenlogo
-          .desc
-            margin-top: 4%
-            color: $greenfont
-          .more
-            font-size: .19rem
-            line-height: .35rem
-            color: $greenfont
-            padding-right: .3rem
-            display: inline-block
-            background: url("https://gwcss.acer.com.cn/images/con-more2.png") no-repeat center right
-            background-size: .15rem auto
-            margin-top: 14%
+    &:first-child
+      .news_area
+        .news_content
+          .content
+            .date
+              color: $greenfont
+            .title
+              margin-top: 4%
+              color: $greenlogo
+            .desc
+              margin-top: 4%
+              color: $greenfont
+            .more
+              font-size: .19rem
+              line-height: .35rem
+              color: $greenfont
+              padding-right: .3rem
+              display: inline-block
+              background: url("https://gwcss.acer.com.cn/images/con-more2.png") no-repeat center right
+              background-size: .15rem auto
+              margin-top: 20%
+          @media only screen and (max-width: 768px)
+            .content
+              padding-bottom: 0
+              .more
+                margin-top: .1rem
+                font-size: .3rem
+                background-size: .26rem auto
+    &:last-child
+      margin-bottom: .4rem
+@media only screen and (max-width: 768px)
+  .news
+    .news_list
+      .news_breadcrumb
+        .news_breadcrumb_box
+          margin-top: .5rem
+          .bread
+            font-size: .3rem
+            margin-right: .15rem
+    .new_news
+      .news_area
+        .news_content
+          .content
+            padding: .3rem 0
+            .date
+              font-size: .3rem
+            .title
+              font-size: .3rem
+              line-height: .4rem
+            .desc
+              display: none
 </style>

@@ -15,7 +15,7 @@
     </Row>
     <Row class="nav">
       <Col class="nav_logo" :lg="{span:2, offset: 1}" :md="{span:2, offset:1}" :sm="0" :xs="0"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
-      <Col class="nav_item nav_item_shop" :lg="{span:2, offset:2}" :md="{span:2, offset:5}" :sm="0" :xs="0"><div>宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></div></Col>
+      <Col class="nav_item nav_item_shop" :lg="{span:2, offset:2}" :md="{span:2, offset:5}" :sm="0" :xs="0"><router-link tag="div" to="/shop">宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></router-link></Col>
       <Col class="all_product" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">
         <div class="all" @mouseover="showPullDown" @mouseout="showPullDown">
           全部产品
