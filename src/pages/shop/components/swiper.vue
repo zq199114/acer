@@ -14,7 +14,7 @@
       <!--<div class="swiper-scrollbar"   slot="scrollbar"></div>-->
     </swiper>
     <Row class="white_banner">
-      <Col class="ctrl" :lg="24" :md="24">
+      <Col class="ctrl mw" :lg="24" :md="24">
         <Col :lg="{span: 12}" :md="{span: 12}" :sm="{span: 12}" :sx="{span: 24}">&nbsp;</Col>
         <Col class="search" :lg="{span: 10, offset: 1}" :md="{span: 10, offset: 1}" :sm="{span: 10, offset: 1}" :sx="{span: 24}">
           <div class="input">

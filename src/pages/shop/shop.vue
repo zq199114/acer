@@ -1,7 +1,7 @@
 <template>
   <div class="shop">
     <com-swiper></com-swiper>
-    <Row class="new_pro" type="flex" justify="center" :gutter="16">
+    <Row class="new_pro mw" type="flex" justify="center" :gutter="16">
       <Col v-for="(item, index) in proList.slice(0, 2)" :key="index" class="new_pro_list" :lg="{span: 11}" :md="{span: 11}" :sm="{span: 11}" :xs="{span: 22}">
         <Card class="new_pro_item">
           <div class="left">
@@ -21,7 +21,7 @@
       </Col>
       <seeMore class="more"></seeMore>
     </Row>
-    <Row class="hot_sell" type="flex">
+    <Row class="hot_sell mw" type="flex">
       <Col class="left_img" :lg="{span: 14, offset: 1}" :md="{span: 14, offset: 1}" :sm="{span: 14, offset: 1}" :xs="{span: 22, offset: 1}">
         <div class="right">
           <img :src="proList[2].proImg" alt="">
@@ -45,8 +45,8 @@
       <img src="https://www.acer.com.cn/web/images/mtit-img1.png" alt="">
       <i>奢 由轻而来</i>
     </div>
-    <Row class="thinest">
-      <Col class="thinest_list" v-for="(item, index) in proList2.slice(0,1)" :key="index" :lg="{span: 22, offset:1}" :md="{span: 22, offset:1}" :sm="{span: 22, offset:1}">
+    <Row class="thinest mw">
+      <Col class="thinest_list" v-for="(item, index) in proList2.slice(0,1)" :key="index" :lg="{span: 24}" :md="{span: 24}" :sm="{span: 24}">
         <div class="thinest_left">
           <div class="left">
             <div class="name">{{item.name}}</div>
@@ -65,12 +65,12 @@
           </div>
         </div>
       </Col>
-      <Col class="thinest_item" :lg="{span: 22, offset:1}" :md="{span: 22, offset:1}" :sm="{span: 22, offset:1}">
-        <Row class="thinest_row">
+      <Col class="thinest_item" :lg="{span: 24}" :md="{span: 24}" :sm="{span: 24}">
+        <Row class="thinest_row" type="flex" justify="space-between">
           <Col class="thinest_all"
                v-for="(item, index) in proList2.slice(1)"
                :key="index"
-               :lg="8" :md="8" :sm="8"
+               :lg="7" :md="7" :sm="7"
           >
             <div class="top">
               <div class="right">
@@ -127,13 +127,13 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass" scoped type="text/sass">
 @import "~styles/mixin.scss"
 @import "~styles/shop.sass"
 .shop
   background: #f9f9f9
   .new_pro
-    margin: .5rem 0 .3rem
+    margin: .5rem auto .3rem!important
     .new_pro_list
       .new_pro_item
         position: relative
@@ -155,9 +155,7 @@ export default {
       margin-left: 0
       transform: none
   .hot_sell
-    height: 0
-    padding-bottom: 51%
-    /*overflow: hidden*/
+    // margin-bottom: 10rem
     .left_img
       @include cardRight(100%, false)
     .right_content
@@ -190,7 +188,7 @@ export default {
       padding: .3rem 0
       border: .01rem solid #d2d2d2
       .thinest_left
-        padding-left: .5rem
+        padding-left: 1.5rem
         width: 49%
         display: inline-block
         @include ct()
@@ -199,20 +197,40 @@ export default {
           .price
             margin-top: .7rem
       .thinest_right
-        padding-right: .5rem
-        width: 49%
+        padding-right: 1.5rem
+        width: 56%
         margin-left: 50%
         display: inline-block
         @include cardRight(100%, false)
     .thinest_item
+      margin-top: .4rem
       .thinest_row
         .thinest_all
+          border: .01rem solid #d2d2d2
+          background: #fff
+          padding: .35rem .4rem .2rem!important
           .top
             width: 100%
-            @include cardRight(100%, false)
+            padding-bottom: .34rem
+            border-bottom: .01rem dashed #d2d2d2
+            text-align: center
+            @include cardRight(70%, false)
           .bottom
+            padding-top: .34rem
             width: 100%
             @include cardLift(false, 100%)
+            .left
+              .name
+                font-size: .25rem
+                color: #535353
+              .desc
+                font-size: .13rem
+                color: #969696
+              .price
+                color: #333
+                font-weight: 400
+                &:before
+                  color: #333
 @media only screen and (max-width: 768px)
   .shop
     .new_pro
