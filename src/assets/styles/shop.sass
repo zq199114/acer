@@ -1,0 +1,101 @@
+@import "./mixin"
+@mixin cardLift($label:false, $width: 50%, $color:#333)
+  .left
+    position: relative
+    // overflow: hidden
+    z-index: 10 // 要让z-index生效纪要加上相对定位
+    display: inline-block
+    width: $width
+    .name
+      white-space: nowrap
+      font-size: .16rem
+      line-height: .25rem
+      color: $color
+      &:before
+        @if $label != false
+          content: $label
+          display: inline-block
+          background: $greenfont
+          color: #fff
+          padding: 0 .1rem
+          margin-right: .08rem
+          font-size: .14rem
+          vertical-align: top
+    .title
+      font-size: .25rem
+      margin-top: .13rem
+      color: $color
+    .desc
+      font-size: .15rem
+      line-height: .25rem
+      // height: .5rem
+      margin: .17rem 0 .25rem
+      color: $color
+      @include Rellipsis
+    .price
+      font-size: .28rem
+      font-weight: 700
+      color: $greenfont
+      &:before
+        content: '￥'
+        color: $greenfont
+        font-size: .16rem
+        font-weight: normal
+    .buy
+      margin-top: .15rem
+      z-index: 66
+      .now
+        display: inline-block
+        border: .01rem solid $greenfont
+        color: $greenfont
+        font-size: .14rem
+        line-height: .3rem
+        padding: 0 .15rem
+      .collect
+        display: inline-block
+        color: #999
+        padding-left: 16%
+        font-size: .16rem
+@mixin cardRight($width:49%, $pos:true)
+    .right
+      overflow: hidden
+      z-index: 10
+      display: inline-block
+      width: $width
+      @if $pos
+       @include ct
+      img
+        width: 100%
+    //&:after
+    //  z-index: 1
+    //  content: 'NEW'
+    //  position: absolute
+    //  font-size: 1.3rem
+    //  color: #f6faf3
+    //  right: 0rem
+    //  bottom: -.2rem
+    //  font-weight: bold
+    //  font-family: Arial
+    //  line-height: 1.4rem
+@mixin xsFont()
+  .name
+    font-size: .35rem
+    &:before
+      font-size: .2rem
+  .title
+    font-size: .38rem
+    line-height: .5rem
+  .desc
+    font-size: .3rem
+    line-height: .4rem
+  .price
+    font-size: .6rem
+    &:before
+      font-size: .3rem
+  .buy
+    .now
+      font-size: .3rem
+      line-height: .5rem
+      padding: 0 .3rem
+    .collect
+      font-size: .3rem

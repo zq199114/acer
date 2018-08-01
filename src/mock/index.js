@@ -81,6 +81,28 @@ const newsList = function () {
   return list
 }
 const shopList = function () {
+  let list2 = [{
+    name: '蜂鸟Swift 5 SF514-52T',
+    title: '轻薄、时尚',
+    desc: '宏碁（Acer） 蜂鸟Swift-5  轻奢触控本',
+    price: '7499.00',
+    proImg: 'https://gwimages.acer.com.cn/uploads/product/f3a8f74e31432236efd300588433b241.png'
+  }, {
+    name: '炫6 A615-51G',
+    desc: '宏碁（Acer）炫6A615 15.6英寸金属轻薄笔记本电脑',
+    price: '6298.00',
+    proImg: 'https://gwimages.acer.com.cn/uploads/product/13937c4418860a2111ad9ceb69b3de94.png'
+  }, {
+    name: '蜂鸟Swift3 SF314-54G',
+    desc: '宏碁（Acer）蜂鸟C24-700S 23.8英寸纤薄一体机台式电脑',
+    price: '5499.00',
+    proImg: 'https://gwimages.acer.com.cn/uploads/product/97f9a00c11a6224135c68886b15af0a7.png'
+  }, {
+    name: 'C24-700S',
+    desc: '宏碁（Acer）蜂鸟Swift3微边框炫薄本',
+    price: '5199.00',
+    proImg: 'https://gwimages.acer.com.cn/uploads/product/71af94f22a9dcdbd672dcdf0bfeafcef.png'
+  }]
   let list = [{
     name: '暗影骑士3进阶版',
     title: '游戏本, 发烧友',
@@ -93,8 +115,14 @@ const shopList = function () {
     desc: '宏碁(Acer)翼5A5 15.6英寸轻薄便携笔记本电脑',
     price: '5499.00',
     proImg: 'https://gwimages.acer.com.cn/uploads/product/c406f9585a72f21956646aa20e5e764a.png'
+  }, {
+    name: 'Triton 700',
+    title: '电竞、轻薄，高性能',
+    desc: '掠夺者 Predator Triton 700 15.6英寸',
+    price: '14999.00',
+    proImg: 'https://gwimages.acer.com.cn/uploads/product/b02c9aa9e9cb1a6702e4b14b2b112664.png'
   }]
-  return list
+  return {list, list2}
 }
 Mock.mock('/product/all', 'post', allProduct)
 Mock.mock('/news', 'get', newsList)

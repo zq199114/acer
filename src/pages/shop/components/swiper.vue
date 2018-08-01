@@ -120,7 +120,7 @@ export default {
               border: .01rem solid $greenfont
               width: 70%
               background: transparent
-              padding: .05rem
+              padding: .05rem .3rem
               height: .5rem
               line-height: .5rem
               &::placeholder
@@ -145,6 +145,8 @@ export default {
             .input
               input, button
                 height: .7rem
+                &::placeholder
+                  font-size: .3rem
               .m-title
-                font-size: .2rem
+                font-size: .25rem
 </style>

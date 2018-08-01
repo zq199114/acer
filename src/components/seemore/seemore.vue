@@ -14,10 +14,18 @@ export default {
 @import "~styles/mixin.scss"
 .seemore
   display: inline-block
-  padding: .15rem .4rem .15rem .2rem
+  padding: 0 .5rem 0 .2rem
   color: $greenfont
   border: .01rem solid
-  background: url("https://gwcss.acer.com.cn/images/con-more2.png") no-repeat center right
-  font-size: .2rem
-  margin: 0 auto
+  background: url("https://gwcss.acer.com.cn/images/con-more2.png") 90% center no-repeat // 90%是横坐标 center是纵坐标
+  font-size: .18rem
+  line-height: .46rem
+  margin-top: .4rem
+  margin-left: 50%
+  transform: translateX(-50%)
+@media only screen and (max-width: 768px)
+  .seemore
+    font-size: .3rem
+    line-height: .6rem
+    padding: 0 .6rem 0 .3rem
 </style>
