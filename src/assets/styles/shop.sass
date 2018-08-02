@@ -25,6 +25,7 @@
       font-size: .25rem
       margin-top: .13rem
       color: $color
+      white-space: nowrap
     .desc
       font-size: .15rem
       line-height: .25rem
@@ -44,6 +45,7 @@
     .buy
       margin-top: .15rem
       z-index: 66
+      white-space: nowrap
       .now
         display: inline-block
         border: .01rem solid $greenfont
@@ -58,7 +60,7 @@
         font-size: .16rem
 @mixin cardRight($width:49%, $pos:true)
     .right
-      overflow: hidden
+      // overflow: hidden
       z-index: 10
       display: inline-block
       width: $width

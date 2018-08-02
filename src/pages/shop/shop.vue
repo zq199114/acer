@@ -1,8 +1,8 @@
 <template>
   <div class="shop">
     <com-swiper></com-swiper>
-    <Row class="new_pro mw" type="flex" justify="center" :gutter="16">
-      <Col v-for="(item, index) in proList.slice(0, 2)" :key="index" class="new_pro_list" :lg="{span: 11}" :md="{span: 11}" :sm="{span: 11}" :xs="{span: 22}">
+    <Row class="new_pro mw" type="flex" justify="space-between" :gutter="16">
+      <Col v-for="(item, index) in proList.slice(0, 2)" :key="index" class="new_pro_list" :lg="{span: 12, offset:0}" :md="{span: 12, offset:0}" :sm="{span: 12, offset:0}" :xs="{span:24}">
         <Card class="new_pro_item">
           <div class="left">
             <div class="name">{{item.name}}</div>
@@ -22,12 +22,12 @@
       <seeMore class="more"></seeMore>
     </Row>
     <Row class="hot_sell mw" type="flex">
-      <Col class="left_img" :lg="{span: 14, offset: 1}" :md="{span: 14, offset: 1}" :sm="{span: 14, offset: 1}" :xs="{span: 22, offset: 1}">
+      <Col class="left_img" :lg="{span: 16}" :md="{span: 16}" :sm="{span: 16}" :xs="{span: 24}">
         <div class="right">
           <img :src="proList[2].proImg" alt="">
         </div>
       </Col>
-      <Col class="right_content" :lg="{span: 8}" :md="{span: 8}" :sm="{span: 8}" :xs="{span:22, offset: 1}">
+      <Col class="right_content" :lg="{span: 8}" :md="{span: 8}" :sm="{span: 8}" :xs="{span:24}">
         <div class="left">
           <div class="name">{{proList[2].name}}</div>
           <div class="title">{{proList[2].title}}</div>
@@ -46,7 +46,7 @@
       <i>奢 由轻而来</i>
     </div>
     <Row class="thinest mw">
-      <Col class="thinest_list" v-for="(item, index) in proList2.slice(0,1)" :key="index" :lg="{span: 24}" :md="{span: 24}" :sm="{span: 24}">
+      <Col class="thinest_list" v-for="(item, index) in proList2.slice(0,1)" :key="index" :lg="{span: 24}" :md="{span: 24}" :sm="{span: 24}" :xs="{span: 24}">
         <div class="thinest_left">
           <div class="left">
             <div class="name">{{item.name}}</div>
@@ -65,12 +65,12 @@
           </div>
         </div>
       </Col>
-      <Col class="thinest_item" :lg="{span: 24}" :md="{span: 24}" :sm="{span: 24}">
+      <Col class="thinest_item" :lg="{span: 24}" :md="{span: 24}" :sm="{span: 24}" :xs="24">
         <Row class="thinest_row" type="flex" justify="space-between">
           <Col class="thinest_all"
                v-for="(item, index) in proList2.slice(1)"
                :key="index"
-               :lg="7" :md="7" :sm="7"
+               :lg="7" :md="7" :sm="7" :xs="24"
           >
             <div class="top">
               <div class="right">
@@ -133,13 +133,16 @@ export default {
 .shop
   background: #f9f9f9
   .new_pro
-    margin: .5rem auto .3rem!important
+    margin: 1.4rem auto .3rem!important
     .new_pro_list
       .new_pro_item
         position: relative
-        padding: .2rem .15rem
-        @include cardLift("新品")
-        @include cardRight()
+        padding: 2.5em .15rem
+        @include cardLift("新品",45%)
+        .left
+          .price
+            margin-top: .55rem
+        @include cardRight(55%)
         &:after
           z-index: 1
           content: 'NEW'
@@ -151,15 +154,11 @@ export default {
           font-weight: bold
           font-family: Arial
           line-height: 1.4rem
-    .more
-      margin-left: 0
-      transform: none
   .hot_sell
     // margin-bottom: 10rem
     .left_img
-      @include cardRight(100%, false)
+      @include cardRight(89%, false)
     .right_content
-      width: 29%
       height: 0
       padding-bottom: 38%
       background: #333333
@@ -185,7 +184,9 @@ export default {
   .thinest
     .thinest_list
       position: relative
+      height: 0
       padding: .3rem 0
+      padding-bottom: 38%
       border: .01rem solid #d2d2d2
       .thinest_left
         padding-left: 1.5rem
@@ -198,9 +199,10 @@ export default {
             margin-top: .7rem
       .thinest_right
         padding-right: 1.5rem
-        width: 56%
-        margin-left: 50%
+        width: 55%
+        margin-left: 46%
         display: inline-block
+        @include ct()
         @include cardRight(100%, false)
     .thinest_item
       margin-top: .4rem
@@ -215,14 +217,17 @@ export default {
             border-bottom: .01rem dashed #d2d2d2
             text-align: center
             @include cardRight(70%, false)
+            .right
+              transition: all 0.3s linear 0s
           .bottom
-            padding-top: .34rem
+            margin-top: .34rem
             width: 100%
             @include cardLift(false, 100%)
             .left
               .name
                 font-size: .25rem
                 color: #535353
+                @include noRellipsis()
               .desc
                 font-size: .13rem
                 color: #969696
@@ -231,6 +236,11 @@ export default {
                 font-weight: 400
                 &:before
                   color: #333
+          &:hover
+            .top
+              .right
+                transform: scale(1.05)
+                // transform: translate3d(-50%,-50%,0) !important
 @media only screen and (max-width: 768px)
   .shop
     .new_pro
@@ -241,11 +251,56 @@ export default {
           .left
             @include xsFont()
     .hot_sell
-      padding-bottom: 126%
       .right_content
+        margin: 0 auto
         width: 92%
         padding-bottom: 50%
         .left
           width: 80%
           @include xsFont()
+      .left_img
+        margin: 0 auto
+        width: 92%
+        .right
+          width: 100%
+    .separate
+      width: 35%
+      border-bottom: .04rem solid #a15e00
+      margin-top: .6rem
+      img
+        display: none
+      i
+        font-size: .5rem
+    .thinest
+      .thinest_list
+        height: 0
+        padding-bottom: 45%
+        .thinest_left
+          padding-left: 3%
+          .left
+            width: 100%
+            @include xsFont()
+            .price
+              margin-top: 0
+        .thinest_right
+          padding: 0
+          width: 50%
+          margin-left: 46%
+          @include ct()
+      .thinest_item
+        .thinest_row
+          .thinest_all
+            margin-top: .3rem
+            .top
+              .right
+                width: 80%
+            .bottom
+              .left
+                @include xsFont()
+                .name
+                  line-height: .4rem
+            &:hover
+              .top
+                .right
+                  transform: none
 </style>

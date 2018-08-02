@@ -84,7 +84,7 @@ export default {
       width: 100%
     .swiper-pagination
       width: 3.5rem
-      bottom: 1.3rem
+      bottom: 1.7rem
       @include cl
       & /deep/ .my-bullet
         display: inline-block
