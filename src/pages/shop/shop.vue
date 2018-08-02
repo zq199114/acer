@@ -21,18 +21,18 @@
       </Col>
       <seeMore class="more"></seeMore>
     </Row>
-    <Row class="hot_sell mw" type="flex">
+    <Row class="hot_sell mw" type="flex" v-for="(item, index) in proList.slice(2, 1)" :key="index">
       <Col class="left_img" :lg="{span: 16}" :md="{span: 16}" :sm="{span: 16}" :xs="{span: 24}">
         <div class="right">
-          <img :src="proList[2].proImg" alt="">
+          <img :src="item.proImg" alt="">
         </div>
       </Col>
       <Col class="right_content" :lg="{span: 8}" :md="{span: 8}" :sm="{span: 8}" :xs="{span:24}">
         <div class="left">
-          <div class="name">{{proList[2].name}}</div>
-          <div class="title">{{proList[2].title}}</div>
-          <div class="desc">{{proList[2].desc}}</div>
-          <div class="price">{{proList[2].price}}</div>
+          <div class="name">{{item.name}}</div>
+          <div class="title">{{item.title}}</div>
+          <div class="desc">{{item.desc}}</div>
+          <div class="price">{{item.price}}</div>
           <div class="buy">
             <div class="now">立即购买</div>
             <div class="collect">收藏</div>
@@ -92,7 +92,35 @@
           </Col>
         </Row>
       </Col>
+      <see-more></see-more>
     </Row>
+    <div class="separate">
+      <img src="https://www.acer.com.cn/web/images/mtit-img2.png" alt="">
+      <i>召唤你的力量</i>
+    </div>
+    <Row class="thinest mw">
+      <Col class="thinest_list" :lg="{span: 24}" :md="{span: 24}" :sm="{span: 24}" :xs="{span: 24}">
+        <div class="thinest_left">
+          <div class="left">
+            <div class="name b_name">{{proList3.name}}</div>
+            <div class="title b_title">{{proList3.title}}</div>
+            <div class="desc b_desc">{{proList3.desc}}</div>
+            <div class="price b_price">{{proList3.price}}</div>
+            <div class="buy">
+              <div class="now">立即购买</div>
+              <div class="collect">收藏</div>
+            </div>
+          </div>
+        </div>
+        <div class="thinest_right">
+          <div class="right">
+            <img :src="proList3.proImg" alt="">
+          </div>
+        </div>
+      </Col>
+      <see-more></see-more>
+    </Row>
+    <div class="bottom_img"><img src="https://www.acer.com.cn/web/images/mall-ad.png" alt=""></div>
   </div>
 </template>
 
@@ -108,7 +136,8 @@ export default {
   data () {
     return {
       proList: [],
-      proList2: []
+      proList2: [],
+      proList3: {}
     }
   },
   methods: {
@@ -118,6 +147,7 @@ export default {
         console.log(data)
         this.proList = data.list
         this.proList2 = data.list2
+        this.proList3 = data.list3
       }
     }
   },
@@ -197,6 +227,8 @@ export default {
         .left
           .price
             margin-top: .7rem
+          .b_name, .b_title, .b_desc
+            color: #e1e1e1
       .thinest_right
         padding-right: 1.5rem
         width: 55%
@@ -241,6 +273,11 @@ export default {
               .right
                 transform: scale(1.05)
                 // transform: translate3d(-50%,-50%,0) !important
+  .bottom_img
+    margin-top: .1rem
+    width: 100%
+    img
+      width: 100%
 @media only screen and (max-width: 768px)
   .shop
     .new_pro

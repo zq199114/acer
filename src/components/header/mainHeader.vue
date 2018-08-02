@@ -1,21 +1,23 @@
 <template>
   <header class="top">
     <Row class="bar">
-      <Col :lg="{span:5, offset:1}" :md="{span:6, offset:1}" :sm="0" :xs="0" class="bar_item">
-        <router-link tag="span" to="/index" class="co_ite">首页</router-link>
-        <router-link tag="span" to="/news" class="co_ite">资讯</router-link>
-        <span class="co_ite">社交平台 <Icon class="arr" size="9" type="chevron-down"></Icon></span>
-      </Col>
-      <Col :lg="{span:7, offset:6}" :md="{span:9, offset: 3}" :sm="0" :xs="0" class="bar_middle">
-        <i class="contact_way">客户售后热线：400-700-1000 / 商用售前热线：400-810-0118</i>
-      </Col>
-      <Col :lg="{span:3, offset:1}" :md="{span:3, offset:1}" :sm="0" :xs="0"  class="bar_right">
-        <div class="login"><Icon type="android-contact"></Icon><span class="log">登陆</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span>注册</span></div>
+      <Col class="mw">
+        <Col :lg="{span:6}" :md="{span:7}" :sm="0" :xs="0" class="bar_item">
+          <router-link tag="span" to="/index" class="co_ite">首页</router-link>
+          <router-link tag="span" to="/news" class="co_ite">资讯</router-link>
+          <span class="co_ite">社交平台 <Icon class="arr" size="9" type="chevron-down"></Icon></span>
+        </Col>
+        <Col :lg="{span:7, offset:8}" :md="{span:9, offset: 4}" :sm="0" :xs="0" class="bar_middle">
+          <i class="contact_way">客户售后热线：400-700-1000 / 商用售前热线：400-810-0118</i>
+        </Col>
+        <Col :lg="{span:2, offset:1}" :md="{span:3, offset:1}" :sm="0" :xs="0"  class="bar_right">
+          <div class="login"><Icon type="android-contact"></Icon><span class="log">登陆</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span>注册</span></div>
+        </Col>
       </Col>
     </Row>
-    <Row class="nav">
-      <Col class="nav_logo" :lg="{span:2, offset: 1}" :md="{span:2, offset:1}" :sm="0" :xs="0"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
-      <Col class="nav_item nav_item_shop" :lg="{span:2, offset:2}" :md="{span:2, offset:5}" :sm="0" :xs="0"><router-link tag="div" to="/shop">宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></router-link></Col>
+    <Row class="nav mw">
+      <Col class="nav_logo" :lg="{span:3}" :md="{span:3}" :sm="0" :xs="0"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
+      <Col class="nav_item nav_item_shop" :lg="{span:2, offset:1}" :md="{span:2, offset:4}" :sm="0" :xs="0"><router-link tag="div" to="/shop">宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></router-link></Col>
       <Col class="all_product" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">
         <div class="all" @mouseover="showPullDown" @mouseout="showPullDown">
           全部产品
@@ -34,7 +36,7 @@
       <Col class="nav_item" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>商用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
       <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>解决方案</div></Col>
       <Col class="nav_item" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><div>服务支持<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
-      <Col class="nav_search" :lg="{span:4}" :md="{span:0}" :sm="0" :xs="0">
+      <Col class="nav_search" :lg="{span:5}" :md="{span:0}" :sm="0" :xs="0">
         <div class="search">
           <div class="search_item_all">
             <input class="search_item" type="text" placeholder="acer 4750G">
@@ -94,11 +96,13 @@ export default {
        text-align: left
        margin-left: 0.03rem
    .bar_middle
+     white-space: nowrap
      text-align: right
      .contact_way
    .bar_right
      @include font(0.12rem, 0.4rem)
      text-align: right
+     white-space: nowrap
      .login
       text-align: right
       @include sc(0.15rem, #fff)

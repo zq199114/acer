@@ -122,7 +122,14 @@ const shopList = function () {
     price: '14999.00',
     proImg: 'https://gwimages.acer.com.cn/uploads/product/b02c9aa9e9cb1a6702e4b14b2b112664.png'
   }]
-  return {list, list2}
+  let list3 = {
+    name: '威武781',
+    title: '威武781',
+    desc: '宏碁（Acer）威武781台式游戏电脑主机',
+    price: '6999.00',
+    proImg: 'https://gwimages.acer.com.cn/uploads/product/36dd8ade4e46592211f6fcb3d1a8cc20.png'
+  }
+  return {list, list2, list3}
 }
 Mock.mock('/product/all', 'post', allProduct)
 Mock.mock('/news', 'get', newsList)

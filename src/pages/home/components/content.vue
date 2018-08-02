@@ -4,7 +4,7 @@
     <Row class="row_item" :gutter="10">
       <Col class="col_item" v-for="item in arr[0]" :lg="{span: 12}" :md="12" :sm="12" :xs="24" :key="item.id">
         <div class="hover_img">
-          <img class="item_img" :src="item.imgUrl" alt="">
+          <router-link :to="item.url" tag="img" class="item_img" :src="item.imgUrl" alt=""></router-link>
         </div>
       </Col>
       <Col class="b_white" :lg="24" :md="24" :sm="24" :xs="0">
@@ -64,26 +64,33 @@ export default {
     return {
       contentImg: [{
         id: '1',
-        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/eea67c62ee461e68b9078763d9ba0df0.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/eea67c62ee461e68b9078763d9ba0df0.jpg',
+        url: '/show'
       }, {
         id: '2',
-        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/e42b6cff28b1ecd03d98319f6277dbda.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/e42b6cff28b1ecd03d98319f6277dbda.jpg',
+        url: '/show'
       }, {
         id: '3',
-        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/710b6d8a8ff497d4d983dbdd92557b6d.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/710b6d8a8ff497d4d983dbdd92557b6d.jpg',
+        url: '/show'
       }, {
         id: '4',
-        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/2f8e5a8ab6343bb182024a64ed447520.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/2f8e5a8ab6343bb182024a64ed447520.jpg',
+        url: '/show'
       }, {
         id: '5',
-        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/c00c0118d1fe08dd9033c5b3e9f7301c.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/c00c0118d1fe08dd9033c5b3e9f7301c.jpg',
+        url: '/show'
       }, {
         id: '6',
-        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/5b8e4b06ee9b357263a00be0ce392ae7.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/5b8e4b06ee9b357263a00be0ce392ae7.jpg',
+        url: '/show'
       }],
       bottom_img: {
         id: '7',
-        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/e620cfaa3263d4220d7ef9de2a503290.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/e620cfaa3263d4220d7ef9de2a503290.jpg',
+        url: '/show'
       }
       // contentImgArr: [] // 存放图片的数组
     }

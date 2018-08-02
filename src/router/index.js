@@ -25,6 +25,10 @@ export default new Router({
         path: '/shop',
         name: 'shop',
         component: () => import('@/pages/shop/shop')
+      }, {
+        path: '/show',
+        name: 'show',
+        component: () => import('@/pages/show/show')
       }]
     }
   ]
