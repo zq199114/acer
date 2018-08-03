@@ -1,5 +1,5 @@
 <template>
-  <header class="top">
+  <header class="top" ref="topBar">
     <Row class="bar">
       <Col class="mw">
         <Col :lg="{span:6}" :md="{span:7}" :sm="0" :xs="0" class="bar_item">
@@ -57,6 +57,7 @@
 import AllProduct from './components/pullPage'
 import uspull from './components/commonPulldown'
 import mNav from './components/mNav'
+import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'mainHeader',
   components: {
@@ -70,13 +71,30 @@ export default {
       showDom: false
     }
   },
+  computed: {
+    ...mapState(['mainHh'])
+  },
   methods: {
     showPullDown () {
       this.showAllPro = !this.showAllPro
     },
     showDomestic () {
       this.showDom = !this.showDom
-    }
+    },
+    recalc () {
+      let Hh = this.$refs.topBar.clientHeight
+      this.STORE_HEIGHT(Hh)
+    },
+    ...mapMutations(['STORE_HEIGHT'])
+  },
+  mounted () {
+    // orientationchange事件在设备的纵横方向改变时触发。
+    // 文档视图调整大小时会触发 resize 事件。
+    let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+    if (!document.addEventListener) return
+    window.addEventListener(resizeEvt, this.recalc, false)
+    document.addEventListener('DOMContentLoaded', this.recalc, false)
+    this.recalc()
   }
 }
 </script>

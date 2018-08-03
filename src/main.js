@@ -11,6 +11,7 @@ import axios from 'axios'
 import './mock/index'
 import 'swiper/dist/css/swiper.css'
 import './config/rem'
+import store from './store'
 
 Vue.prototype.$axios = axios
 // require styles
@@ -24,6 +25,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
