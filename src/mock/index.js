@@ -131,6 +131,47 @@ const shopList = function () {
   }
   return {list, list2, list3}
 }
+const sContent = function () {
+  let T700 = {
+    imgList: [{
+      title: 'video',
+      video: 'https://gwimages.acer.com.cn/FTP_file/media_File/20171228231834.mp4',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/321acee5a750df84c5e9e771627fa1d2.jpg'
+      // video: 'https://gwimages.acer.com.cn/uploads/pdetail/321acee5a750df84c5e9e771627fa1d2.jpg'
+    }, {
+      title: 'innovate',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/c3fe521689f1da6233df8131dcd775f4.jpg'
+    }, {
+      title: 'experience ',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/bfd996689748bf4e5dac2d467b8588c1.jpg'
+    }, {
+      title: 'performance',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/b59f473ff1210ae9ff796c81380f832c.jpg'
+    }, {
+      title: 'servicepc',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/c09a8bbd0fb02f2b8c6590758a93b664.jpg'
+    }, {
+      title: 'servicem',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/07f4437518fdeda5ffd26e9a9acfbe25.jpg'
+    }],
+    para: [{
+      title: '主体',
+      desc: {
+        '型号': 'PT715-51-79D2（NH.Q2LCN.001)',
+        '颜色': '黑色',
+        '平台': 'Intel'
+      }
+    }, {
+      title: '操作系统',
+      desc: {
+        '操作系统': 'Windows 10家庭版',
+        '操作系统版本': '正版 Microsoft Windows 10 家庭版'
+      }
+    }]
+  }
+  return T700
+}
+Mock.mock('/showcontent', 'get', sContent)
 Mock.mock('/product/all', 'post', allProduct)
 Mock.mock('/news', 'get', newsList)
 Mock.mock('/prolist', 'get', shopList)

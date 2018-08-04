@@ -126,7 +126,7 @@ export default {
 <style lang="sass" scoped type="text/sass">
 @import '~styles/mixin.scss'
 .footer
-  margin-top: 100%
+  // margin-top: 100%
   background: #272727
   .footer-top
     padding-bottom: 0.2rem

@@ -1,44 +1,43 @@
 <template>
   <div class="show">
     <div class="nav" ref="showBar">
-      <div class="bar bar_xs">
-        <Col class="nav_item xs">Triton 700</Col>
-        <Col class="nav_item xs">产品参数</Col>
-        <Col class="nav_item xs">视频介绍</Col>
-        <Col class="nav_item xs">创新分类</Col>
-        <Col class="nav_item xs">极致体验</Col>
-        <Col class="nav_item xs">强大性能</Col>
-        <Col class="nav_item xs">特色服务</Col>
-      </div>
-      <Row class="bar mw">
-        <Col :xs="{span:0}" :sm="{span:5}" :md="{span:4}" :lg="{span:3}" class="nav_item">Triton 700</Col>
-        <Col :xs="{span:0}" :sm="{span:3, offset: 1}" :md="{span:2, offset: 8}" :lg="{span:2, offset: 9}" class="nav_item">产品参数</Col>
-        <Col :xs="{span:0}" :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item">视频介绍</Col>
-        <Col :xs="{span:0}" :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item">创新分类</Col>
-        <Col :xs="{span:0}" :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item">极致体验</Col>
-        <Col :xs="{span:0}" :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item">强大性能</Col>
-        <Col :xs="{span:0}" :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item">特色服务</Col>
+      <Row class="bar bar_xs mw">
+        <Col :sm="{span:5}" :md="{span:4}" :lg="{span:3}" class="nav_item xs">Triton 700</Col>
+        <Col :sm="{span:3, offset: 1}" :md="{span:2, offset: 8}" :lg="{span:2, offset: 9}" class="nav_item xs">产品参数</Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">视频介绍</Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">创新分类</Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">极致体验</Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">强大性能</Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">特色服务</Col>
       </Row>
     </div>
+    <show-content :listImg="listImg"></show-content>
+    <parameter :para="para"></parameter>
   </div>
 </template>
 
 <script>
+import showContent from './components/content'
+import parameter from './components/parameter'
 import { mapState } from 'vuex'
 import BScroll from 'better-scroll'
 export default {
   name: 'show',
+  components: {
+    showContent,
+    parameter
+  },
   data () {
     return {
-      tbEl: ''
+      tbEl: '', // 记录顶部dom节点
+      listImg: [], // 描述图片
+      para: []
     }
   },
   methods: {
     handleiScroll () {
       const top = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
-      console.log(this.mainHh)
       let nav = this.tbEl
-      // console.log(1)
       if (top >= this.mainHh) {
         nav.style.position = 'fixed'
         nav.style.top = 0
@@ -46,6 +45,16 @@ export default {
         nav.style.right = 0
       } else {
         nav.style.position = 'static'
+      }
+    },
+    getContent (res) {
+      if (res.status === 200) {
+        let data = res.data
+        this.listImg = data.imgList
+        this.para = data.para
+
+      } else {
+        console.log('失败了')
       }
     }
   },
@@ -64,6 +73,7 @@ export default {
       scrollX: true,
       bounce: false
     })
+    this.$axios.get('/showcontent').then(res => this.getContent(res))
   }
 }
 </script>
@@ -71,6 +81,7 @@ export default {
 <style lang="sass" scoped>
 .show
   .nav
+    z-index: 10
     background: #232323
     height: .64rem
     line-height: .64rem
@@ -82,7 +93,7 @@ export default {
           color: #fff
           font-size: .28rem
     .bar_xs
-      display: none
+      // display: none
 @media only screen and (max-width: 768px)
   .show
     .nav

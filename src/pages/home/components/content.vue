@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <home-swiper></home-swiper>
-    <Row class="row_item" :gutter="10">
+    <Row class="row_item mw" :gutter="10">
       <Col class="col_item" v-for="item in arr[0]" :lg="{span: 12}" :md="12" :sm="12" :xs="24" :key="item.id">
         <div class="hover_img">
           <router-link :to="item.url" tag="img" class="item_img" :src="item.imgUrl" alt=""></router-link>
@@ -20,7 +20,7 @@
         </div>
       </Col>
     </Row>
-    <Row class="row_item_t" :gutter="10">
+    <Row class="row_item_t mw" :gutter="10">
       <!--<Col class="col_item_t" v-for="item in contentImgArr[1]" :lg="12" :md="12" :sm="12" :xs="24" :key="item.id">-->
       <Col class="col_item_t" :lg="12" :md="12" :sm="12" :xs="24">
         <div class="hover_img">
@@ -118,8 +118,9 @@ export default {
 @import '~styles/mixin.scss'
 .content
   .row_item, .row_item_t, .row_bottom
+    margin: 0 auto!important
     overflow: hidden
-    padding: 0
+    padding: 0 0
     position: relative
     .t_white
       padding: 0!important // important在这里加上是因为element.style这个节点因为无直接修改所以要加上!improtant
@@ -178,8 +179,8 @@ export default {
       width: 2%
       img
         width: 100%
-@media only screen and (min-width: 768px)
+@media only screen and (max-width: 768px)
   .content
     .row_item, .row_item_t
-      padding: 0 1%
+      // padding: 0 1%
 </style>
