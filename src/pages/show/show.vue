@@ -3,16 +3,16 @@
     <div class="nav" ref="showBar">
       <Row class="bar bar_xs mw">
         <Col :sm="{span:5}" :md="{span:4}" :lg="{span:3}" class="nav_item xs">Triton 700</Col>
-        <Col :sm="{span:3, offset: 1}" :md="{span:2, offset: 8}" :lg="{span:2, offset: 9}" class="nav_item xs">产品参数</Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">视频介绍</Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">创新分类</Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">极致体验</Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">强大性能</Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs">特色服务</Col>
+        <Col :sm="{span:3, offset: 1}" :md="{span:2, offset: 8}" :lg="{span:2, offset: 9}" class="nav_item xs"><a href="#ms">产品参数</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#video">视频介绍</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#innovate">创新分类</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#experience">极致体验</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#performance">强大性能</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a :href="'#' + serviceChange">特色服务</a></Col>
       </Row>
     </div>
     <show-content :listImg="listImg"></show-content>
-    <parameter :para="para"></parameter>
+    <parameter id="ms" :para="para"></parameter>
   </div>
 </template>
 
@@ -31,7 +31,8 @@ export default {
     return {
       tbEl: '', // 记录顶部dom节点
       listImg: [], // 描述图片
-      para: []
+      para: [], // 参数存储
+      service: '' // 存储
     }
   },
   methods: {
@@ -52,14 +53,20 @@ export default {
         let data = res.data
         this.listImg = data.imgList
         this.para = data.para
-
       } else {
         console.log('失败了')
       }
     }
   },
   computed: {
-    ...mapState(['mainHh'])
+    ...mapState(['mainHh', 'screenWw']),
+    serviceChange () {
+      if (this.screenWw > 768) {
+        return 'servicepc'
+      } else {
+        return 'servicem'
+      }
+    }
   },
   mounted () {
     this.tbEl = this.$refs.showBar
@@ -84,12 +91,15 @@ export default {
     z-index: 10
     background: #232323
     height: .64rem
-    line-height: .64rem
     .bar
+      height: 100%
       .nav_item
-        color: #a7a7a7
-        font-size: .16rem
+        a
+          line-height: .64rem
+          color: #a7a7a7
+          font-size: .16rem
         &:first-child
+          line-height: .64rem
           color: #fff
           font-size: .28rem
     .bar_xs

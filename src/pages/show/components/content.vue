@@ -11,7 +11,7 @@
         </div>
       </Col>
       <!--下面的class判断是否隐藏pc或移动端的描述图片-->
-      <Col class="c_img"
+      <Col class="c_img" :id="item.title"
            :class="{'p_none': item.title === 'servicepc', 'm_none': item.title === 'servicem'}"
            :lg="{span:item.video?12:24}" :md="item.video?12:24" :sm="item.video?12:24" :xs="24">
         <div class="c_img_cont">
@@ -31,7 +31,11 @@ export default {
   },
   data () {
     return {
+      screenWidth: 0 // 屏幕宽度
     }
+  },
+  mounted () {
+    this.screenWidth = this.screenWw
   }
 }
 </script>
@@ -40,6 +44,7 @@ export default {
 .content
   .c_row
     .c_col
+      height: auto
       .c_video
         .c_video_cont
           width: 100%
@@ -74,6 +79,7 @@ export default {
               width: 100%
         .p_none
           display: none
+          visibility: hidden
         .m_none
           display: block
 </style>

@@ -142,7 +142,7 @@ const sContent = function () {
       title: 'innovate',
       imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/c3fe521689f1da6233df8131dcd775f4.jpg'
     }, {
-      title: 'experience ',
+      title: 'experience',
       imgUrl: 'https://gwimages.acer.com.cn/uploads/pdetail/bfd996689748bf4e5dac2d467b8588c1.jpg'
     }, {
       title: 'performance',

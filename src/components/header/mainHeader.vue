@@ -83,9 +83,12 @@ export default {
     },
     recalc () {
       let Hh = this.$refs.topBar.clientHeight
+      let Cw = document.documentElement.clientWidth
+      // console.log(Cw)
       this.STORE_HEIGHT(Hh)
+      this.STORE_C_WIDTH(Cw)
     },
-    ...mapMutations(['STORE_HEIGHT'])
+    ...mapMutations(['STORE_HEIGHT', 'STORE_C_WIDTH'])
   },
   mounted () {
     // orientationchange事件在设备的纵横方向改变时触发。
