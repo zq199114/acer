@@ -91,6 +91,8 @@ export default {
     z-index: 10
     background: #232323
     height: .64rem
+    overflow: auto
+    white-space: nowrap
     .bar
       height: 100%
       .nav_item
@@ -107,22 +109,23 @@ export default {
 @media only screen and (max-width: 768px)
   .show
     .nav
-      line-height: .65rem
-      height: .65rem
+      line-height: .7rem
+      height: .7rem
       overflow: hidden
       .bar
         display: none
       .bar_xs
         display: block
         white-space: nowrap
-        width: 9.4rem
+        width: 10.5rem
         padding-left: .35rem
         .xs
-          font-size: .25rem
           display: inline-block
           margin-right: .15rem
+          a
+            font-size: .28rem
           &:first-child
             color: #fff
-            font-size: .3rem
+            font-size: .33rem
             margin-right: .3rem
 </style>
