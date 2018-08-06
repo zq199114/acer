@@ -13,6 +13,7 @@ export default new Router({
         selector: to.hash
       }
     }
+    return { x: 0, y: 0 }
   },
   routes: [
     {

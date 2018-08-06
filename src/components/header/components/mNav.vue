@@ -124,11 +124,12 @@ export default {
     background-color: #000101
     .m_nav_menu_b
       background: #191919
-    @media only screen and (max-width: 768px)
-      .m_nav
-        position: relative
+      color: #fff
+@media only screen and (max-width: 768px)
+  .m_nav
+    position: relative
+    .m_nav_w, .m_nav_b
       .m_nav_logo
-        // border-bottom: 0.01rem solid #b8b8b8
         .m_nav_bar
           height: 1rem
           line-height: 1rem
@@ -143,7 +144,7 @@ export default {
             width: 1.8rem
             img
               width: 100%
-      .m_nav_menu
+      .m_nav_menu, .m_nav_menu_b
         z-index: 99
         background: #fff
         position: absolute
@@ -170,4 +171,6 @@ export default {
             background: #eaeaea
             vertical-align: middle
             color: #666666
+      .m_nav_menu_b
+        background: #191919
 </style>

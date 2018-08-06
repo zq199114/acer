@@ -1,14 +1,14 @@
 <template>
   <div class="show">
     <div class="nav" ref="showBar">
-      <Row class="bar bar_xs mw">
+      <Row class="bar bar_xs mw" ref="nav">
         <Col :sm="{span:5}" :md="{span:4}" :lg="{span:3}" class="nav_item xs">Triton 700</Col>
-        <Col :sm="{span:3, offset: 1}" :md="{span:2, offset: 8}" :lg="{span:2, offset: 9}" class="nav_item xs"><a href="#ms">产品参数</a></Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#video">视频介绍</a></Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#innovate">创新分类</a></Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#experience">极致体验</a></Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a href="#performance">强大性能</a></Col>
-        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a :href="'#' + serviceChange">特色服务</a></Col>
+        <Col :sm="{span:3, offset: 1}" :md="{span:2, offset: 8}" :lg="{span:2, offset: 9}" class="nav_item xs"><a @click="addActive" href="#ms">产品参数</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#video">视频介绍</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#innovate">创新分类</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#experience">极致体验</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#performance">强大性能</a></Col>
+        <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" :href="'#' + serviceChange">特色服务</a></Col>
       </Row>
     </div>
     <show-content :listImg="listImg"></show-content>
@@ -56,10 +56,18 @@ export default {
       } else {
         console.log('失败了')
       }
+    },
+    addActive (e) {
+      for (var i = 0; i < this.$refs.nav.$children.length; i++) {
+        if (i === 0) continue // 如果是第一个就跳过
+        this.$refs.nav.$children[i].$el.lastChild.style.color = '#a7a7a7'
+      }
+      e.toElement.style.color = '#fff'
     }
   },
   computed: {
     ...mapState(['mainHh', 'screenWw']),
+    // 判断宽度改变点击的id
     serviceChange () {
       if (this.screenWw > 768) {
         return 'servicepc'
@@ -97,6 +105,7 @@ export default {
       height: 100%
       .nav_item
         a
+          display: inline-block
           line-height: .64rem
           color: #a7a7a7
           font-size: .16rem
@@ -104,8 +113,8 @@ export default {
           line-height: .64rem
           color: #fff
           font-size: .28rem
-    .bar_xs
-      // display: none
+        .active
+          color: #fff
 @media only screen and (max-width: 768px)
   .show
     .nav
