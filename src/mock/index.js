@@ -171,7 +171,105 @@ const sContent = function () {
   }
   return T700
 }
+const gameList = function () {
+  let swiperImg = [{
+    id: '1',
+    imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180108223254.png'
+  }, {
+    id: '2',
+    imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180108223334.png'
+  }, {
+    id: '3',
+    imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180322194111.png'
+  }]
+  let list = [{
+    title: '笔记本',
+    titleImg: 'https://gwimages.acer.com.cn/uploads/ptype/36462173fd3100481a38b1a34daf1ef5.png',
+    children: [{
+      model: 'Helios 300 PH315-51(White)',
+      name: '掠夺者（Predator）15.6英寸游戏笔记本电脑',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/bbed9ef0a3ba562d4a2742c015fb41d2.png'
+    }, {
+      model: 'Helios 300 PH315-51',
+      name: '掠夺者（Predator）15.6英寸游戏笔记本电脑',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/ec0305cb411c2663fa413518d2f36ca6.png'
+    }, {
+      model: 'Helios 300 PH317-52',
+      name: '掠夺者（Predator）17.3英寸游戏笔记本电脑',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/2cdf342f4e50cb0c7503f627bfc50d83.png'
+    }, {
+      model: 'Helios 500 PH517-51',
+      name: '掠夺者（Predator）17.3英寸游戏笔记本电脑',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/dd568cb692629074ca8d2da0c0773445.png'
+    }, {
+      model: 'Helios 300 PH317-51',
+      name: '掠夺者（Predator）HELIOS300PH317GTX106017.3英寸游戏笔记本电脑',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/3d635d10c653d1e4d112e745b6e6cb50.png'
+    }, {
+      model: 'Helios 300 G3-573',
+      name: '掠夺者（Predator）G3GTX106015.6英寸游戏笔记本',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/fb5c81ed3a220004b71069645f112867.png'
+    }, {
+      model: 'Triton 700',
+      name: '掠夺者 Predator Triton 700 15.6英寸',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/b02c9aa9e9cb1a6702e4b14b2b112664.png'
+    }]
+  }, {
+    title: '台式机',
+    titleImg: 'https://gwimages.acer.com.cn/uploads/ptype/9966f9645e5f9bd9fa8f362344f9967a.png',
+    children: [{
+      model: 'Orion 9000',
+      name: '掠夺者（Predator）Orion9000电竞台式机',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/a420eaa9931f8053b7ca2fd5f8b44bb6.png'
+    }, {
+      model: 'Orion 5000',
+      name: 'Orion 5000高性能电竞主机',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/8abecc54476e253de0a2f33598e9dc99.png'
+    }, {
+      model: 'Orion 3000',
+      name: 'Orion 3000高性能电竞主机',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/1a97873d88eef7746a465adf8d33f2ac.png'
+    }]
+  }, {
+    title: '显示器',
+    titleImg: 'https://gwimages.acer.com.cn/uploads/ptype/fb02814493db30c339fe9ad51071aeaf.png',
+    children: [{
+      model: 'XB271HU',
+      name: '宏碁（Acer）掠夺者XB271HU27英寸IPS窄边框2K屏',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/09dd8c2662b96ce14928333f055c5580.png'
+    }, {
+      model: 'X34P',
+      name: '宏碁（Acer）掠夺者X3434英寸IPS电竞G-Sync技术100Hz',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/8266e4bfeda1bd42d8f9794eb4ea0a13.png'
+    }, {
+      model: 'Z35P',
+      name: '宏碁（Acer）掠夺者Z35P35英寸1800R曲率电竞',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/f19c9085129709ee14d013be869df69b.png'
+    }, {
+      model: 'Z271U bmiphzx',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/598946e8a5aec257780f0cd032ebed2b.png'
+    }]
+  }, {
+    title: '投影机',
+    titleImg: 'https://gwimages.acer.com.cn/uploads/ptype/cf9489b7a1239e435380eee4e2e6ae59.png',
+    children: [{
+      model: 'Z650',
+      name: '宏碁（acer）掠夺者Z650全高清1080P电竞投影仪',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/9eb9cd58b9ea5e04c890326b5c1f471f.png'
+    }]
+  }, {
+    title: '外设',
+    titleImg: 'https://gwimages.acer.com.cn/uploads/ptype/7b4004582960234cd0b85e687be60a47.png',
+    children: [{
+      model: 'PMW510',
+      name: 'PMW510',
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/c738c396daa768ab1f83afaf65365817.png'
+    }]
+  }]
+  return {list, swiperImg}
+}
 Mock.mock('/showcontent', 'get', sContent)
 Mock.mock('/product/all', 'post', allProduct)
 Mock.mock('/news', 'get', newsList)
 Mock.mock('/prolist', 'get', shopList)
+Mock.mock('/gameList', 'post', gameList)

@@ -122,6 +122,7 @@ export default {
           color: #666666
   .m_nav_b
     background-color: #000101
+    border-bottom: .01rem solid #232323
     .m_nav_menu_b
       background: #191919
       color: #fff

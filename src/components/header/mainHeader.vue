@@ -17,7 +17,7 @@
       </Col>
     </Row>
     <!--通用白色导航栏-->
-    <div class="conter_com"><Row v-if="showCommon" class="nav mw">
+    <div class="conter_com" v-if="showCommon"><Row class="nav mw">
       <Col class="nav_logo" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
       <Col class="nav_item nav_item_shop" :lg="{span:2, offset:4}" :md="{span:2, offset:6}" :sm="0" :xs="0"><router-link tag="div" to="/shop">宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></router-link></Col>
       <Col class="all_product" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">
@@ -34,7 +34,7 @@
           <Icon type="chevron-down" color="#c5c5c5" class="ico_down ico_home"></Icon>
         </div>
       </Col>
-      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>高端电竞</div></Col>
+      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><router-link tag="div" to="/showGame">高端电竞</router-link></Col>
       <Col class="nav_item" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>商用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
       <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>解决方案</div></Col>
       <Col class="nav_item nav_item_support" :lg="{span:2}" :md="{span:3}" :sm="0" :xs="0"><div>服务支持<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
@@ -114,7 +114,7 @@ export default {
     },
     ...mapMutations(['STORE_HEIGHT', 'STORE_C_WIDTH']),
     routeJudje () {
-      if (this.$route.name === 'show') {
+      if (this.$route.name === 'show' || this.$route.name === 'showGame') {
         this.showGamebook = true
         this.showCommon = false
       } else {
@@ -172,7 +172,7 @@ export default {
         margin-left: 0.10rem
   .conter_com, .conter_b
     background: #fff
-      border-bottom: 0.01rem solid #b8b8b8
+    border-bottom: 0.01rem solid #b8b8b8
     .nav
       white-space: nowrap
       position: relative
@@ -240,7 +240,8 @@ export default {
           vertical-align: middle
   .conter_b
     background: #000
-    border-bottom: 0.01rem solid #000
+    border-bottom: none
+    border-bottom: .01rem solid #232323
     .nav_b
       .nav_b_item
         // width: auto
@@ -255,12 +256,13 @@ export default {
               background: #232323
 @media only screen and (max-width: 1200px)
   .top
-    .nav
-      .nav_item, .nav_item_shop, .nav_item_spl, .all_product, .nav_search_small
-        font-size: .16rem
-        width: auto
-        margin-right: 1%
-      .nav_search_small
-        margin-left: 1.7%
-        margin-right: 0
+    .conter_com
+      .nav
+        .nav_item, .nav_item_shop, .nav_item_spl, .all_product, .nav_search_small
+          font-size: .16rem
+          width: auto
+          margin-right: 1%
+        .nav_search_small
+          margin-left: 1.7%
+          margin-right: 0
 </style>

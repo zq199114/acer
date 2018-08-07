@@ -39,6 +39,10 @@ export default new Router({
         path: '/show',
         name: 'show',
         component: () => import('@/pages/show/show')
+      }, {
+        path: '/showGame',
+        name: 'showGame',
+        component: () => import('@/pages/showgame/showGame')
       }]
     }
   ]
