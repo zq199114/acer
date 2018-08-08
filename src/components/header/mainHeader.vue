@@ -54,9 +54,15 @@
     <div class="conter_b">
       <Row v-if="showGamebook" class="nav nav_b mw">
       <Col class="nav_logo" :lg="{span:3}" :md="{span:3}" :sm="0" :xs="0"><div class="logo"><img src="https://www.acer.com.cn/web/images/gam-logo.png" alt=""></div></Col>
-      <Col class="nav_item nav_b_item" :lg="{span:1, offset:10}" :md="{span:1, offset:12}" :sm="0" :xs="0"><div>产品<Icon type="chevron-down" color="#232323" class="ico_down"></Icon></div></Col>
+      <Col class="nav_item nav_b_item" :lg="{span:1, offset:10}" :md="{span:1, offset:12}" :sm="0" :xs="0">
+        <div @mouseover="showDomestic" @mouseout="showDomestic">
+          产品
+          <Icon type="chevron-down" color="#232323" class="ico_down"></Icon>
+          <g-pull v-show="showDom"></g-pull>
+        </div>
+      </Col>
       <Col class="nav_item nav_b_item b_ser" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><div>服务支持<Icon type="chevron-down" color="#232323" class="ico_down"></Icon></div></Col>
-      <Col class="nav_item nav_b_item" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">返回首页</Col>
+      <Col class="nav_item nav_b_item" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><router-link tag="div" to="/index">返回首页</router-link></Col>
       <Col class="nav_search nav_b_search" :lg="{span:4}" :md="{span:0}" :sm="0" :xs="0">
         <div class="search">
           <div class="search_item_all">
@@ -78,6 +84,7 @@
 <script>
 import AllProduct from './components/pullPage'
 import uspull from './components/commonPulldown'
+import gPull from './components/gamePulldowm'
 import mNav from './components/mNav'
 import { mapMutations, mapState } from 'vuex'
 export default {
@@ -85,7 +92,8 @@ export default {
   components: {
     AllProduct,
     uspull,
-    mNav
+    mNav,
+    gPull
   },
   data () {
     return {

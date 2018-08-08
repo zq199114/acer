@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div class="listbanner">
     <swiper class="continer" :options="swiperOption" ref="mySwiper">
       <swiper-slide class="continer_item" v-for="(item, index) in pages" v-bind:key="index">
         <div v-for="(ite, index) of item" class="double_item" :key="index">
@@ -13,7 +13,7 @@
       </swiper-slide>
     </swiper>
     <div class="swiper-button-conture">
-      <div class="swiper-pagination"  slot="pagination"></div>
+      <div class="swiper-pagination-com"  slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </div>
@@ -41,7 +41,7 @@ export default {
           prevEl: '.swiper-button-prev'
         },
         pagination: {
-          el: '.swiper-pagination',
+          el: '.swiper-pagination-com',
           type: 'custom',
           renderCustom: function (swiper, current, total) {
             return current + ' / ' + total
@@ -74,7 +74,7 @@ export default {
 
 <style lang="sass" scoped type="text/sass">
   @import '~styles/mixin.scss'
-  .banner
+  .listbanner
     position: relative
     width: 100%
     height: 100%
@@ -110,24 +110,23 @@ export default {
               font-size: .2rem
     .swiper-button-conture
       position: absolute
-      width: 4rem
-      height: 1rem
-      bottom: 0
+      width: 1.8rem
+      // height: 1rem
+      bottom: 0.4rem
       @include cl()
-      .swiper-pagination
+      .swiper-pagination-com
+        height: .4rem
+        line-height: .3rem
         color: #fff
         font-size: .25rem
-        bottom: 0.4rem
-        right: 0.4rem
+        text-align: center
       .swiper-button-prev
-        left: 1.1rem
         background: url(https://gwcss.acer.com.cn/images/gam-prev.png) no-repeat
         background-size: contain
       .swiper-button-next
         background: url(https://gwcss.acer.com.cn/images/gam-next.png) no-repeat
         background-size: contain
-        right: 1.1rem
   @media only screen and (max-width: 768px)
-    .banner
+    .listbanner
       display: none
 </style>

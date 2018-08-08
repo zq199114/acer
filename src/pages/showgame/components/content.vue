@@ -44,7 +44,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.gameList)
+    // console.log(this.gameList)
     // 以下为防止页面异常刷新而设置的
     // 一开始是获取不到props传来的数据的
     if (this.gameList.length === 0) return

@@ -8,6 +8,7 @@
 <script>
 import swiperCom from 'components/swiper/swiper'
 import contentShow from './components/content'
+import { mapMutations } from 'vuex'
 export default {
   name: 'showGame',
   components: {
@@ -18,7 +19,7 @@ export default {
     return {
       swiperImg: [], // 轮播图
       gameList: [], // 游戏本列表
-      buttonshow: false // 判断是否显示左右两边的图片前进后退
+      buttonshow: true // 判断是否显示左右两边的图片前进后退
     }
   },
   methods: {
@@ -27,8 +28,10 @@ export default {
         let data = res.data
         this.swiperImg = data.swiperImg
         this.gameList = data.list
+        this.STORE_PULL_LIST(data.list)
       }
-    }
+    },
+    ...mapMutations(['STORE_PULL_LIST'])
   },
   mounted () {
     this.$axios.post('/gameList').then(res => {

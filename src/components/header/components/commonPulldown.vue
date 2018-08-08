@@ -96,12 +96,17 @@ export default {
   },
   methods: {
     showChildren (flag, index) {
+      for (var item in flag) {
+        for (var it in flag[item]) {
+          console.log(it)
+        }
+      }
       // console.log(flag)
       if (flag) {
-        this.cItem = flag
-        this.show = index
+        this.cItem = flag // 判断是否有children
+        this.show = index // 判断是否显示用的index
       }
-      this.actIndex = index
+      this.actIndex = index // 判断是否显示css效果
     },
     hidden () {
       this.show = ''

@@ -1,33 +1,34 @@
 <template>
   <div class="fixed_side">
     <ul class="fixed_side_list">
-      <li class="fixed_side_item" @click="handleShowPlace" @mouseover="handleShowPlace" @mouseout="handleShowPlace">
+      <li class="fixed_side_item" :style="blackstyle" @click="handleShowPlace" @mouseover="handleShowPlace" @mouseout="handleShowPlace">
         <Icon class="icon" type="android-cart"></Icon>
         <i>购买</i>
-        <ul class="place_list" v-show="showplace">
+        <ul class="place_list" :style="blackstyle" v-show="showplace">
           <li class="place_item" v-for="(item, index) in hoverItem.hoverImg" :key="index">
-            <img :src="item.img" alt="">
+            <img v-if="!black" :src="item.img" alt="">
+            <img v-if="black" :src="item.bimg" alt="">
           </li>
         </ul>
       </li>
-      <li class="fixed_side_item" @click="handleShowContact" @mouseover="handleShowContact" @mouseout="handleShowContact">
+      <li class="fixed_side_item" :style="blackstyle" @click="handleShowContact" @mouseover="handleShowContact" @mouseout="handleShowContact">
         <Icon class="icon" type="android-call"></Icon>
         <i>电话</i>
         <ul class="contact_list" v-show="showContact">
-          <li class="contact_item" v-for="(item, index) in hoverItem.contact" :key="index">
-            <h5 class="title">{{item.title}}:</h5>
+          <li :style="blackstyle" class="contact_item" v-for="(item, index) in hoverItem.contact" :key="index">
+            <h5 :style="blackstyle" class="title">{{item.title}}:</h5>
             <h4 class="phone">{{item.phone}}</h4>
-            <p class="time">{{item.time}}</p>
+            <p :style="blackstyle" class="time">{{item.time}}</p>
           </li>
         </ul>
       </li>
-      <li class="fixed_side_item">
+      <li :style="blackstyle" class="fixed_side_item">
         <Icon class="icon" type="compose"></Icon>
         <i>留言</i>
       </li>
       <li class="fixed_backtop">
         <BackTop :bottom="-55" :right="0">
-           <div class="top"><Icon class="top_arrow" type="arrow-up-a"></Icon></div>
+           <div  class="top"><Icon :style="blackstyle" class="top_arrow" type="arrow-up-a"></Icon></div>
         </BackTop>
       </li>
     </ul>
@@ -41,11 +42,14 @@ export default {
     return {
       hoverItem: {
         hoverImg: [{
-          img: 'https://www.acer.com.cn/web/images/to-acer.png'
+          img: 'https://www.acer.com.cn/web/images/to-acer.png',
+          bimg: 'https://www.acer.com.cn/web/images/to-acer2.png'
         }, {
-          img: 'https://www.acer.com.cn/web/images/to-tmall.png'
+          img: 'https://www.acer.com.cn/web/images/to-tmall.png',
+          bimg: 'https://www.acer.com.cn/web/images/to-tmall2.png'
         }, {
-          img: 'https://www.acer.com.cn/web/images/to-jd.png'
+          img: 'https://www.acer.com.cn/web/images/to-jd.png',
+          bimg: 'https://www.acer.com.cn/web/images/to-jd2.png'
         }],
         contact: [{
           title: 'Acer客户服务热线',
@@ -62,7 +66,9 @@ export default {
         }]
       },
       showplace: false,
-      showContact: false
+      showContact: false,
+      blackstyle: '',
+      black: '' // 颜色判断
     }
   },
   methods: {
@@ -71,6 +77,27 @@ export default {
     },
     handleShowContact () {
       this.showContact = !this.showContact
+    },
+    routeJudje () {
+      if (this.$route.name === 'show' || this.$route.name === 'showGame') {
+        this.blackstyle = {
+          color: '#666666',
+          background: '#fdfdfd'
+        }
+        this.black = true
+      } else {
+        this.blackstyle = ''
+        this.black = false
+      }
+    }
+  },
+  mounted () {
+    this.routeJudje()
+  },
+  watch: {
+    // 组件内守卫只能再父组件中使用子组件，只能用watch来观察
+    $route () {
+      this.routeJudje()
     }
   }
 }
@@ -150,6 +177,7 @@ export default {
           padding-top: .08rem
           color: $greenlogo
           font-size: .4rem
+  // .pactive
 @media only screen and (max-width: 768px)
   .fixed_side
     position: fixed
