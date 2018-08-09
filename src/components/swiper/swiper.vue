@@ -62,8 +62,9 @@ export default {
   @import '~styles/mixin.scss'
   .banner
     position: relative
-    height: auto
+    height: 0
     width: 100%
+    padding-bottom: 46.8%
     .swiper_img
       width: 100%
     .swiper-pagination

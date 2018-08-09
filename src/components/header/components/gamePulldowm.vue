@@ -1,10 +1,12 @@
 <template>
   <div class="common_pull_down">
     <ul class="menu">
+      <!--这里的点击事件要加stop防止冒泡-->
       <li class="menu_item" v-for="(item, index) of locallist"
           :key="index"
           @mouseover="showChildren(item.children, index)"
           @mouseleave="hidden"
+          @click.stop="toShowPage(item, index, cKey)"
           :class="{'active': index === actIndex}"
       >
         <div class="item_text" :class="{'active': index === actIndex}">
@@ -54,6 +56,17 @@ export default {
     hidden () {
       this.show = ''
       this.actIndex = ''
+    },
+    toShowPage (item, index, cKey) {
+      // console.log(item.children)
+      let page = 'showGame'
+      if (cKey === 'model') {
+        item = ''
+        index = ''
+        page = 'show'
+      }
+      console.log(page)
+      this.$router.push({name: page, params: { item, index }})
     }
   },
   computed: {
@@ -61,7 +74,7 @@ export default {
   },
   mounted () {
     this.locallist = this.proplist ? this.proplist : this.gamePullList
-    this.cKey = this.keyitem ? (this.keyitem === 'model' ? 'imgUrl' : 'model') : 'title'
+    this.cKey = this.keyitem ? 'model' : 'title'
   }
 }
 </script>

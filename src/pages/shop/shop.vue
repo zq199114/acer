@@ -10,7 +10,7 @@
             <div class="desc">{{item.desc}}</div>
             <div class="price">{{item.price}}</div>
             <div class="buy">
-              <div class="now">立即购买</div>
+              <div class="now" @click="gotoProduct">立即购买</div>
               <div class="collect">收藏</div>
             </div>
           </div>
@@ -21,7 +21,7 @@
       </Col>
       <seeMore class="more"></seeMore>
     </Row>
-    <Row class="hot_sell mw" type="flex" v-for="(item, index) in proList.slice(2, 1)" :key="index">
+    <Row class="hot_sell mw" type="flex" v-for="(item, index) in proList.slice(2, 3)" :key="index">
       <Col class="left_img" :lg="{span: 16}" :md="{span: 16}" :sm="{span: 16}" :xs="{span: 24}">
         <div class="right">
           <img :src="item.proImg" alt="">
@@ -34,7 +34,7 @@
           <div class="desc">{{item.desc}}</div>
           <div class="price">{{item.price}}</div>
           <div class="buy">
-            <div class="now">立即购买</div>
+            <div class="now" @click="gotoProduct">立即购买</div>
             <div class="collect">收藏</div>
           </div>
         </div>
@@ -54,7 +54,7 @@
             <div class="desc">{{item.desc}}</div>
             <div class="price">{{item.price}}</div>
             <div class="buy">
-              <div class="now">立即购买</div>
+              <div class="now" @click="gotoProduct">立即购买</div>
               <div class="collect">收藏</div>
             </div>
           </div>
@@ -84,7 +84,7 @@
                 <div class="desc">{{item.desc}}</div>
                 <div class="price">{{item.price}}</div>
                 <div class="buy">
-                  <div class="now">立即购买</div>
+                  <div class="now" @click="gotoProduct">立即购买</div>
                   <div class="collect">收藏</div>
                 </div>
               </div>
@@ -107,7 +107,7 @@
             <div class="desc b_desc">{{proList3.desc}}</div>
             <div class="price b_price">{{proList3.price}}</div>
             <div class="buy">
-              <div class="now">立即购买</div>
+              <div class="now" @click="gotoProduct">立即购买</div>
               <div class="collect">收藏</div>
             </div>
           </div>
@@ -144,11 +144,13 @@ export default {
     getList (res) {
       if (res.status === 200) {
         let data = res.data
-        console.log(data)
         this.proList = data.list
         this.proList2 = data.list2
         this.proList3 = data.list3
       }
+    },
+    gotoProduct () {
+      this.$router.push('/product')
     }
   },
   mounted () {

@@ -14,7 +14,10 @@ export default new Router({
       }
     }
     return { x: 0, y: 0 }
+    // 以下为参考网站
+    // https://github.com/vuejs/vue-router/blob/next/examples/scroll-behavior/app.js
   },
+  // linkActiveClass: 'is-active',
   routes: [
     {
       path: '/',
@@ -26,6 +29,7 @@ export default new Router({
       }, {
         path: '/index',
         name: 'index',
+        meta: { scrollToTop: true },
         component: () => import('@/pages/home/components/content')
       }, {
         path: '/news',
@@ -43,6 +47,10 @@ export default new Router({
         path: '/showGame',
         name: 'showGame',
         component: () => import('@/pages/showgame/showGame')
+      }, {
+        path: '/product',
+        name: 'product',
+        component: () => import('@/pages/product/product')
       }]
     }
   ]

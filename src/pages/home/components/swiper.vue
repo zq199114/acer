@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide v-for="item in swiperImg" v-bind:key="item.id">
-        <img :src="item.imgUrl" alt="" class="swiper_img swiper-lazy">
+        <router-link tag="img" :to="item.url" :src="item.imgUrl" alt="" class="swiper_img swiper-lazy"></router-link>
         <div class="swiper-lazy-preloader"></div>
       </swiper-slide>
       <!--<swiper-slide>I'm Slide 2</swiper-slide>-->
@@ -24,19 +24,24 @@ export default {
     return {
       swiperImg: [{
         id: '1',
-        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180524205816.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180524205816.jpg',
+        url: '/index'
       }, {
         id: '2',
-        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180527165531.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180527165531.jpg',
+        url: '/shop'
       }, {
         id: '3',
-        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180628140245.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180628140245.jpg',
+        url: '/show'
       }, {
         id: '4',
-        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180614141452.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180614141452.jpg',
+        url: '/show'
       }, {
         id: '5',
-        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20171223103539.jpg'
+        imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20171223103539.jpg',
+        url: '/show'
       }],
       swiperOption: {
         clickable: true,

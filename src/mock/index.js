@@ -188,7 +188,8 @@ const gameList = function () {
     children: [{
       model: 'Helios 300 PH315-51(White)',
       name: '掠夺者（Predator）15.6英寸游戏笔记本电脑',
-      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/bbed9ef0a3ba562d4a2742c015fb41d2.png'
+      imgUrl: 'https://gwimages.acer.com.cn/uploads/product/bbed9ef0a3ba562d4a2742c015fb41d2.png',
+      url: '/show'
     }, {
       model: 'Helios 300 PH315-51',
       name: '掠夺者（Predator）15.6英寸游戏笔记本电脑',

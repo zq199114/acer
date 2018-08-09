@@ -82,7 +82,8 @@ export default {
       if (this.$route.name === 'show' || this.$route.name === 'showGame') {
         this.blackstyle = {
           color: '#666666',
-          background: '#fdfdfd'
+          background: '#fdfdfd',
+          borderRadius: '0.05rem'
         }
         this.black = true
       } else {

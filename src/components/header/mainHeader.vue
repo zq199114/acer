@@ -4,6 +4,7 @@
     <Row class="bar">
       <Col class="mw">
         <Col :lg="{span:6}" :md="{span:7}" :sm="0" :xs="0" class="bar_item">
+          <!--event="mouseover"为激活方式默认时click如果设置了mouseover 就为mouseover激活链接-->
           <router-link tag="span" to="/index" class="co_ite">首页</router-link>
           <router-link tag="span" to="/news" class="co_ite">资讯</router-link>
           <span class="co_ite">社交平台 <Icon class="arr" size="9" type="chevron-down"></Icon></span>
@@ -18,7 +19,7 @@
     </Row>
     <!--通用白色导航栏-->
     <div class="conter_com" v-if="showCommon"><Row class="nav mw">
-      <Col class="nav_logo" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><div class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></div></Col>
+      <Col class="nav_logo" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><router-link tag="div" to="/index" class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></router-link></Col>
       <Col class="nav_item nav_item_shop" :lg="{span:2, offset:4}" :md="{span:2, offset:6}" :sm="0" :xs="0"><router-link tag="div" to="/shop">宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></router-link></Col>
       <Col class="all_product" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">
         <div class="all" @mouseover="showPullDown" @mouseout="showPullDown">
@@ -36,7 +37,9 @@
       </Col>
       <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><router-link tag="div" to="/showGame">高端电竞</router-link></Col>
       <Col class="nav_item" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>商用<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
-      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0"><div>解决方案</div></Col>
+      <Col class="nav_item nav_item_spl" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0">
+        <div>解决方案</div>
+      </Col>
       <Col class="nav_item nav_item_support" :lg="{span:2}" :md="{span:3}" :sm="0" :xs="0"><div>服务支持<Icon type="chevron-down" color="#c5c5c5" class="ico_down"></Icon></div></Col>
       <Col class="nav_search" :lg="{span:5}" :md="{span:0}" :sm="0" :xs="0">
         <div class="search">
@@ -51,6 +54,7 @@
         <Icon type="ios-search-strong" size="30" class="search_ico" color="#5c5c5c"></Icon>
       </Col>
     </Row></div>
+    <!--电竞页面导航栏-->
     <div class="conter_b">
       <Row v-if="showGamebook" class="nav nav_b mw">
       <Col class="nav_logo" :lg="{span:3}" :md="{span:3}" :sm="0" :xs="0"><div class="logo"><img src="https://www.acer.com.cn/web/images/gam-logo.png" alt=""></div></Col>
@@ -61,7 +65,9 @@
           <g-pull v-show="showDom"></g-pull>
         </div>
       </Col>
-      <Col class="nav_item nav_b_item b_ser" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><div>服务支持<Icon type="chevron-down" color="#232323" class="ico_down"></Icon></div></Col>
+      <Col class="nav_item nav_b_item b_ser" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">
+        <div>服务支持<Icon type="chevron-down" color="#232323" class="ico_down"></Icon></div>
+      </Col>
       <Col class="nav_item nav_b_item" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><router-link tag="div" to="/index">返回首页</router-link></Col>
       <Col class="nav_search nav_b_search" :lg="{span:4}" :md="{span:0}" :sm="0" :xs="0">
         <div class="search">
@@ -162,6 +168,9 @@ export default {
      .co_ite
        text-align: left
        margin: 0.15rem
+       &:hover
+         color: $greenfont
+         cursor: pointer
      .arr
        text-align: left
        margin-left: 0.03rem
@@ -186,6 +195,9 @@ export default {
       position: relative
       .nav_logo, .nav_item, .nav_item_shop, .nav_search_small, .nav_item_spl, .all_product
         line-height: 0.9rem
+        &:hover
+          cursor: pointer
+          color: $greenfont
       .nav_item, .nav_item_shop, .nav_item_spl, .all_product
         margin-right: 0.2rem
         // width: auto
@@ -202,6 +214,7 @@ export default {
         position: static!important // 加了static之后子元素就不会在受父元素的宽度限制了
         .all
           &:hover
+            cursor: pointer
             color: $greenfont
       .domestic
         position: relative
@@ -211,6 +224,7 @@ export default {
         // margin-right: 0.3rem
         &:hover
           color: $greenfont
+          cursor: pointer
       .nav_item_spl
         margin-right: 0.35rem
       .nav_item_support
