@@ -78,6 +78,7 @@ export default {
 <style lang="sass" scoped>
 .m_nav
   .m_nav_w, .m_nav_b
+    border-bottom: .01rem solid #b8b8b8
     position: relative
     .m_nav_logo
       .m_nav_bar
@@ -174,4 +175,8 @@ export default {
             color: #666666
       .m_nav_menu_b
         background: #191919
+@media only screen and (min-width: 992px)
+  .m_nav
+    .m_nav_w, .m_nav_b
+      border-bottom: none
 </style>

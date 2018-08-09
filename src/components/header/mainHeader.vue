@@ -22,14 +22,14 @@
       <Col class="nav_logo" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0"><router-link tag="div" to="/index" class="logo"><img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt=""></router-link></Col>
       <Col class="nav_item nav_item_shop" :lg="{span:2, offset:4}" :md="{span:2, offset:6}" :sm="0" :xs="0"><router-link tag="div" to="/shop">宏碁商城<Icon type="ios-cart-outline" color="#78Bc27" size="22" class="ico"></Icon></router-link></Col>
       <Col class="all_product" :lg="{span:2}" :md="{span:2}" :sm="0" :xs="0">
-        <div class="all" @mouseover="showPullDown" @mouseout="showPullDown">
+        <div class="all" @mouseover.stop="showPullDown" @mouseout="showPullDown">
           全部产品
           <Icon type="ios-keypad-outline" color="#78Bc27" size="22" class="ico"></Icon>
           <all-product  v-show="showAllPro"></all-product>
         </div>
       </Col>
       <Col class="nav_item domestic" :lg="{span:1}" :md="{span:1}" :sm="0" :xs="0">
-        <div @mouseover="showDomestic" @mouseout="showDomestic">
+        <div @mouseover.stop="showDomestic" @mouseout="showDomestic">
           家用
           <uspull v-show="showDom"></uspull>
           <Icon type="chevron-down" color="#c5c5c5" class="ico_down ico_home"></Icon>
@@ -263,7 +263,7 @@ export default {
   .conter_b
     background: #000
     border-bottom: none
-    border-bottom: .01rem solid #232323
+    // border-bottom: .01rem solid #232323
     .nav_b
       .nav_b_item
         // width: auto

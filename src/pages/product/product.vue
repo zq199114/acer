@@ -1,16 +1,17 @@
 <template>
   <div class="product">
+    <s-bar></s-bar>
     <div class="pro_select">
       <div class="left">
         <div class="img_b"><img src="https://gwimages.acer.com.cn/uploads/propic/046510757347ddf974a0f62bda10e282.png" alt=""></div>
-        <div class="s_img"><img src="https://gwimages.acer.com.cn/uploads/propic/046510757347ddf974a0f62bda10e282.png" alt=""></div>
+        <div class="s_img" v-for="item of 3" :key="item"><img src="https://gwimages.acer.com.cn/uploads/propic/046510757347ddf974a0f62bda10e282.png" alt=""></div>
       </div>
       <div class="right">
         <div class="name">翼5 A515-51G</div>
         <div class="model">A615-51G-830F</div>
         <div class="model_select">
           <div class="title">选择版本</div>
-          <div class="model_item">
+          <div class="model_item" v-for="item of 3" :key="item">
             <div class="img_s"><img src="https://gwimages.acer.com.cn/uploads/config/a8540b221bb981f02b298149bcb918e7.png" alt=""></div>
             <div class="m_desc">i7-8550U</div>
           </div>
@@ -29,8 +30,12 @@
 </template>
 
 <script>
+import sBar from './components/scrollBar'
 export default {
-  name: 'product'
+  name: 'product',
+  components: {
+    sBar
+  }
 }
 </script>
 
@@ -51,11 +56,14 @@ export default {
         margin-top: .25rem
         width: 20%
         border: .01rem solid #e8e8e8
+        display: inline-block
+        margin-right: 1%
         img
           width: 100%
     .right
+      margin-left: 4%
       vertical-align: top
-      width: 54%
+      width: 49%
       display: inline-block
       .name
         font-size: .25rem
@@ -69,8 +77,10 @@ export default {
           font-size: .2rem
         .model_item
           margin-top: .2rem
-          width: 50%
+          width: 49%
+          margin-right: 1%
           border: .01rem solid #d2d2d2
+          display: inline-block
           .img_s
             display: inline-block
             width: 30%
@@ -81,14 +91,14 @@ export default {
             display: inline-block
             font-size: .18rem
       .modle_detail
-        margin-top: .5rem
+        margin-top: 5%
         padding: .3rem .2rem
         background: #fafafa
         .desc
           font-size: .17rem
           color: #969696
         .price
-          margin-top: .3rem
+          margin-top: 5%
           font-size: .17rem
           color: $greenfont
           i
@@ -97,7 +107,7 @@ export default {
               content: '￥'
               font-size: .15rem
       .add_cart
-        margin-top: .3rem
+        margin-top: 5%
         .add, .immed
           padding: .1rem .2rem
           font-size: .17rem
