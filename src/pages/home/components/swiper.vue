@@ -91,12 +91,14 @@ export default {
         width: 0.2rem
         height: 0.05rem
         background: #fff
+        transition: all .3s
       & /deep/ .my-bullet-active
         height: 0.1rem
         width: 0.3rem
         background: $greenlogo
     .swiper-button-prev, .swiper-button-next
       opacity: 0
+      transition: all 0.3s linear 0s
     &:hover
       .swiper-button-prev , .swiper-button-next
         opacity: 1

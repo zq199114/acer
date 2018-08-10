@@ -12,17 +12,20 @@
         <Icon type="drag" class="ico" @click="showMenu"></Icon>
       </Col>
       </Row>
+      <up-down>
       <Row class="m_nav_menu" v-show="show">
       <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}"
            v-for="(item, index) in wnavList" :key="index" class="m_nav_list"
       >
         <router-link tag="div" :to="item.url" class="m_nav_item" @click.native="showPull(index)">
           {{item.title}}<Icon v-if="item.children" type="chevron-down" class="ico_down"></Icon>
+          <up-down>
           <div class="list" v-if="index===cindex">
             <div @click.stop="toPage(it.url)" v-if="item.children" class="list_item" v-for="(it, index) of item.children" :key="index">
               {{it.title}}
             </div>
           </div>
+          </up-down>
         </router-link>
       </Col>
       <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}" class="search">
@@ -31,6 +34,7 @@
         </div>
       </Col>
     </Row>
+      </up-down>
     </div>
     <div class="m_nav_b" v-if="black">
       <Row class="m_nav_logo">
@@ -68,8 +72,12 @@
 </template>
 
 <script>
+import upDown from 'components/transition/upDown'
 export default {
   name: 'mNav',
+  components: {
+    upDown
+  },
   props: {
     black: Boolean,
     white: Boolean
@@ -169,12 +177,14 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass" scoped type="text/sass">
 .m_nav
   .m_nav_w, .m_nav_b
     border-bottom: .01rem solid #b8b8b8
     position: relative
     .m_nav_logo
+      background: #fff
+      z-index: 100
       .m_nav_bar
         height: 0.6rem
         line-height: 0.6rem
@@ -201,6 +211,7 @@ export default {
         font-size: .2rem
         .m_nav_item, .search_on
           // height: 0.58rem
+          z-index: 100
           line-height: 0.58rem
           .ico_down
             color: rgb(197, 197, 197)
@@ -252,6 +263,7 @@ export default {
             img
               width: 100%
       .m_nav_menu, .m_nav_menu_b
+        transition: all .3s
         z-index: 99
         background: #fff
         position: absolute
