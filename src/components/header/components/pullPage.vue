@@ -43,9 +43,9 @@ export default {
   background: rgba(255,255,255,0.95)
   position: absolute
   top: 0.9rem
-  left: 0
-  right: 0
-  z-index: 99
+  left: -2.5%
+  right: -2.5%
+  z-index: 100
   line-height: normal
   .title
     @include sc(0.2rem, #3d3f3e)
@@ -54,7 +54,6 @@ export default {
       margin-right: 0.08rem
   .smalltitle
     padding-left: 0.6rem
-    // height: 100%
     display: table
     .itemtitle
       @include sc(0.14rem, #3d3f3e)
@@ -65,6 +64,8 @@ export default {
     .item_list
       padding-left: 0.1rem
       display: table-cell
+      white-space: pre-wrap
+      width: 100%
       .item
         @include sc(0.14rem, #333)
         display: inline-block

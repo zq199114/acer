@@ -182,5 +182,6 @@ export default {
 @media only screen and (max-width: 768px)
   .content
     .row_item, .row_item_t
-      // padding: 0 1%
+      margin: 0!important
+      width: 100%
 </style>

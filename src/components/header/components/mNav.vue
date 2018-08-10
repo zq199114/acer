@@ -3,20 +3,27 @@
     <div class="m_nav_w" v-if="white">
       <Row class="m_nav_logo">
       <Col class="m_nav_bar" :lg="0" :md="0" :xs="{span: 1, offset: 1}" :sm="{span: 1, offset: 1}">
-        <div class="logo">
+        <router-link tag="div" to="/index" class="logo">
           <img src="https://gwimages.acer.com.cn/uploads/whole/13e8d541d74ed1b43876c3da0b44c3b9.png" alt="">
-        </div>
+        </router-link>
       </Col>
       <Col class="m_nav_bar" :lg="0" :md="0" :xs="{span: 6, offset: 15}" :sm="{span: 3, offset: 18}">
         <Icon type="android-person" class="ico"></Icon>
         <Icon type="drag" class="ico" @click="showMenu"></Icon>
       </Col>
-    </Row>
+      </Row>
       <Row class="m_nav_menu" v-show="show">
       <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}"
            v-for="(item, index) in wnavList" :key="index" class="m_nav_list"
       >
-        <div class="m_nav_item" >{{item}}</div>
+        <router-link tag="div" :to="item.url" class="m_nav_item" @click.native="showPull(index)">
+          {{item.title}}<Icon v-if="item.children" type="chevron-down" class="ico_down"></Icon>
+          <div class="list" v-if="index===cindex">
+            <div @click.stop="toPage(it.url)" v-if="item.children" class="list_item" v-for="(it, index) of item.children" :key="index">
+              {{it.title}}
+            </div>
+          </div>
+        </router-link>
       </Col>
       <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}" class="search">
         <div class="search_on">
@@ -41,7 +48,14 @@
         <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}"
              v-for="(item, index) in bnavList" :key="index" class="m_nav_list"
         >
-          <div class="m_nav_item" >{{item}}</div>
+          <router-link tag="div" :to="item.url" class="m_nav_item"  @click.native="showPull(index)">
+            {{item.title}}<Icon v-if="item.children" type="chevron-down" class="ico_down"></Icon>
+            <div class="list" v-if="index===cindex">
+              <div @click.stop="toPage(it.url, index)" v-if="item.children" class="list_item" v-for="(it, index) of item.children" :key="index">
+                {{it.title}}
+              </div>
+            </div>
+          </router-link>
         </Col>
         <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}" class="search">
           <div class="search_on">
@@ -62,14 +76,94 @@ export default {
   },
   data () {
     return {
-      wnavList: ['全部产品', '宏碁商城', '家用', '高端电竞', '商用', '解决方案', '服务支持'],
-      bnavList: ['产品', '服务支持', '返回首页'],
-      show: false
+      wnavList: [{
+        title: '全部产品',
+        url: '/'
+      }, {
+        title: '宏碁商城',
+        url: '/shop'
+      }, {
+        title: '家用',
+        url: '/',
+        children: [{
+          title: '笔记本',
+          url: '/showGame'
+        }, {
+          title: '台式机',
+          url: ''
+        }, {
+          title: '显示器',
+          url: ''
+        }, {
+          title: '投影仪',
+          url: ''
+        }]
+      }, {
+        title: '高端电竞',
+        url: '/showGame'
+      }, {
+        title: '商用',
+        url: '/'
+      }, {
+        title: '解决方案',
+        url: '/'
+      }, {
+        title: '服务支持',
+        url: '/'
+      }],
+      bnavList: [{
+        title: '产品',
+        url: '',
+        children: [{
+          title: '笔记本',
+          url: '/showGame'
+        }, {
+          title: '台式机',
+          url: '/showGame'
+        }, {
+          title: '显示器',
+          url: '/showGame'
+        }, {
+          title: '投影机',
+          url: '/showGame'
+        }, {
+          title: '外设',
+          url: '/showGame'
+        }]
+      }, {title: '服务支持', url: ''}, {title: '返回首页', url: '/index'}],
+      show: false,
+      cindex: ''
     }
   },
   methods: {
     showMenu () {
       this.show = !this.show
+      if (!this.show) {
+        this.cindex = ''
+      }
+    },
+    showPull (index) {
+      if (index === this.cindex) {
+        this.cindex = ''
+        return
+      }
+      this.cindex = index
+    },
+    toPage (url, title) {
+      if (typeof title === 'number') {
+        console.log(title)
+        this.$router.push({path: url,
+          query: {title: title}
+        })
+        return
+      }
+      this.$router.push(url)
+    }
+  },
+  watch: {
+    $route () {
+      // 如果路由改变就隐藏下拉菜单
+      this.show = false
     }
   }
 }
@@ -106,17 +200,28 @@ export default {
         padding: 0 4%
         font-size: .2rem
         .m_nav_item, .search_on
-          height: 0.58rem
+          // height: 0.58rem
           line-height: 0.58rem
+          .ico_down
+            color: rgb(197, 197, 197)
+            margin-left: .1rem
+          .list
+            .list_item
+              border-top: 0.01rem solid #b8b8b8
+              line-height: .55rem
+              font-size: .18rem
         input
           padding-left: 0.1rem
-          height: 50%
+          height: .3rem
           width: 92%
           background: #eaeaea
+          vertical-align: middle
+          box-sizing: border-box
         .search_ico
+          box-sizing: border-box
           text-align: center
           font-size: 0.27rem
-          height: 50%
+          height: .3rem
           width: 8%
           background: #eaeaea
           vertical-align: middle
@@ -158,17 +263,21 @@ export default {
           padding: 0 4%
           font-size: .3rem
           .m_nav_item, .search_on
-            height: 1.1rem
+            // height: 1.1rem
             line-height: 1.1rem
+            .list
+              .list_item
+                line-height: .9rem
+                font-size: .25rem
           input
             padding-left: 0.1rem
-            height: 60%
+            height: .6rem
             width: 92%
             background: #eaeaea
           .search_ico
             text-align: center
             font-size: 0.6rem
-            height: 60%
+            height: .6rem
             width: 8%
             background: #eaeaea
             vertical-align: middle

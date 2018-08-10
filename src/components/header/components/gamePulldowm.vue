@@ -65,7 +65,6 @@ export default {
         index = ''
         page = 'show'
       }
-      console.log(page)
       this.$router.push({name: page, params: { item, index }})
     }
   },

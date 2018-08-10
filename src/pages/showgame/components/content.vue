@@ -48,12 +48,17 @@ export default {
         // 由于监听了gameList即使再mounted时设置了滚动高度。
         // 由于这里又要执行一次等于时刷新了一次页面所以要把滚动高度设置在这里
         document.documentElement.scrollTop = this.$refs.gameContent.offsetTop
+        let children = this.gameList.filter((res, index) => {
+          return index === this.$route.query.title
+        })[0].children
+        this.changeShowList(children, this.$route.query.title)
       }
     }
   },
   mounted () {
     // 判断参数是否为空
-    if (JSON.stringify(this.$route.params) === '{}') {
+    // console.log(this.$route.query)
+    if (JSON.stringify(this.$route.params) === '{}' && JSON.stringify(this.$route.query) === '{}') {
       // console.log(this.gameList)
       // 以下为防止页面异常刷新而设置的
       // 一开始是获取不到props传来的数据的
@@ -61,6 +66,10 @@ export default {
       this.changeShowList(this.gameList[0].children, 0)
     } else {
       this.flag = true
+      if (typeof this.$route.query.title === 'number') {
+        console.log(this.$route.query.title)
+        return
+      }
       let params = this.$route.params
       // console.log(document.documentElement.scrollTop)
       this.changeShowList(params.item.children, params.index)

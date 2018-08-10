@@ -11,7 +11,7 @@
         <div class="model">A615-51G-830F</div>
         <div class="model_select">
           <div class="title">选择版本</div>
-          <div class="model_item" v-for="item of 3" :key="item">
+          <div class="model_item" v-for="item of 3" :key="item" @click="selectItem(item)" :class="{'active': item===index}">
             <div class="img_s"><img src="https://gwimages.acer.com.cn/uploads/config/a8540b221bb981f02b298149bcb918e7.png" alt=""></div>
             <div class="m_desc">i7-8550U</div>
           </div>
@@ -26,15 +26,34 @@
         </div>
       </div>
     </div>
+    <pro-content></pro-content>
+    <para></para>
+    <promnise></promnise>
   </div>
 </template>
 
 <script>
 import sBar from './components/scrollBar'
+import proContent from './components/content'
+import para from './components/parameter'
+import promnise from './components/promise'
 export default {
   name: 'product',
   components: {
-    sBar
+    sBar,
+    proContent,
+    para,
+    promnise
+  },
+  data () {
+    return {
+      index: 0
+    }
+  },
+  methods: {
+    selectItem (item) {
+      this.index = item
+    }
   }
 }
 </script>
@@ -76,6 +95,7 @@ export default {
         .title
           font-size: .2rem
         .model_item
+          cursor: pointer
           margin-top: .2rem
           width: 49%
           margin-right: 1%
@@ -90,6 +110,9 @@ export default {
           .m_desc
             display: inline-block
             font-size: .18rem
+        .active
+          border-color: $greenfont
+          color: $greenfont
       .modle_detail
         margin-top: 5%
         padding: .3rem .2rem
@@ -117,4 +140,36 @@ export default {
         .immed
           background: $greenfont
           color: #fff
+@media only screen and (max-width: 768px)
+  .product
+    .pro_select
+      padding: .3rem .2rem
+      .left
+        width: 100%
+      .right
+        width: 100%
+        margin: .2rem 0 0 0
+        .name
+          font-size: .5rem
+        .model
+          font-size: .34rem
+        .model_select
+          .title
+            font-size: .4rem
+          .model_item
+            // width: 100%
+            .m_desc
+              font-size: .36rem
+        .modle_detail
+          .desc
+            font-size: .34rem
+          .price
+            font-size: .34rem
+            i
+              font-size: .5rem
+              &:before
+                font-size: .3rem
+        .add_cart
+          .add, .immed
+            font-size: .34rem
 </style>

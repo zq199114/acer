@@ -2,10 +2,10 @@
   <div class="nav" ref="showBar">
     <Row class="bar bar_xs mw" ref="nav">
       <Col :sm="{span:5}" :md="{span:4}" :lg="{span:3}" class="nav_item xs">翼5 A515-51G</Col>
-      <Col :sm="{span:3, offset: 1}" :md="{span:2, offset: 8}" :lg="{span:2, offset: 9}" class="nav_item xs"><a @click="addActive" href="#ms">产品参数</a></Col>
-      <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#innovate">产品介绍</a></Col>
-      <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#experience">产品细节</a></Col>
-      <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="/show#performance">产品特点</a></Col>
+      <Col :sm="{span:3, offset: 7}" :md="{span:2, offset: 11}" :lg="{span:2, offset: 13}" class="nav_item xs"><a @click="addActive" href="#ms">产品参数</a></Col>
+      <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#intro">产品介绍</a></Col>
+      <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#detail">产品细节</a></Col>
+      <Col :sm="{span:3}" :md="{span:2}" :lg="{span:2}" class="nav_item xs"><a @click="addActive" href="#trait">产品特点</a></Col>
     </Row>
   </div>
 </template>
@@ -102,7 +102,7 @@ export default {
       .bar_xs
         display: block
         white-space: nowrap
-        width: 10.5rem
+        width: 8.5rem
         padding-left: .35rem
         .xs
           display: inline-block
