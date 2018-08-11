@@ -200,11 +200,6 @@ export default {
           width: 0.98rem
           img
             width: 100%
-  .m_nav_b
-    // background-color: #000101
-    border-bottom: .01rem solid #232323
-    .m_nav_logo_b
-      background: #000101
     .m_nav_menu, .m_nav_menu_b
       z-index: 99
       background: #fff
@@ -247,6 +242,11 @@ export default {
     .m_nav_menu_b
       background: #191919
       color: #fff
+  .m_nav_b
+    // background-color: #000101
+    border-bottom: .01rem solid #232323
+    .m_nav_logo_b
+      background: #000101
   .in-enter-active, .in-leave-active
     transition: all .3s
   .in-enter, .in-leave-to
