@@ -14,30 +14,32 @@
       </Row>
       <up-down>
       <Row class="m_nav_menu" v-show="show">
-      <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}"
-           v-for="(item, index) in wnavList" :key="index" class="m_nav_list"
-      >
-        <router-link tag="div" :to="item.url" class="m_nav_item" @click.native="showPull(index)">
-          {{item.title}}<Icon v-if="item.children" type="chevron-down" class="ico_down"></Icon>
-          <up-down>
-          <div class="list" v-if="index===cindex">
-            <div @click.stop="toPage(it.url)" v-if="item.children" class="list_item" v-for="(it, index) of item.children" :key="index">
-              {{it.title}}
-            </div>
+        <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}"
+             v-for="(item, index) in wnavList" :key="index" class="m_nav_list"
+        >
+        <transition name="lis">
+          <router-link tag="div" :to="item.url" class="m_nav_item" @click.native="showPull(index)">
+            {{item.title}}<Icon v-if="item.children" type="chevron-down" class="ico_down"></Icon>
+            <transition name="in">
+              <div class="list" v-if="index===cindex">
+                <div @click.stop="toPage(it.url)" v-if="item.children" class="list_item" v-for="(it, index) of item.children" :key="index">
+                  {{it.title}}
+                </div>
+              </div>
+            </transition>
+          </router-link>
+        </transition>
+        </Col>
+        <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}" class="search">
+          <div class="search_on">
+            <input class="" type="text" placeholder="acer 4750G"><Icon class="search_ico" type="ios-search-strong"></Icon>
           </div>
-          </up-down>
-        </router-link>
-      </Col>
-      <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}" class="search">
-        <div class="search_on">
-          <input class="" type="text" placeholder="acer 4750G"><Icon class="search_ico" type="ios-search-strong"></Icon>
-        </div>
-      </Col>
+        </Col>
     </Row>
       </up-down>
     </div>
     <div class="m_nav_b" v-if="black">
-      <Row class="m_nav_logo">
+      <Row class="m_nav_logo_b">
         <Col class="m_nav_bar" :lg="0" :md="0" :xs="{span: 1, offset: 1}" :sm="{span: 1, offset: 1}">
           <div class="logo">
             <img src="https://www.acer.com.cn/web/images/gam-logo.png" alt="">
@@ -182,7 +184,7 @@ export default {
   .m_nav_w, .m_nav_b
     border-bottom: .01rem solid #b8b8b8
     position: relative
-    .m_nav_logo
+    .m_nav_logo, .m_nav_logo_b
       background: #fff
       z-index: 100
       .m_nav_bar
@@ -198,6 +200,11 @@ export default {
           width: 0.98rem
           img
             width: 100%
+  .m_nav_b
+    // background-color: #000101
+    border-bottom: .01rem solid #232323
+    .m_nav_logo_b
+      background: #000101
     .m_nav_menu, .m_nav_menu_b
       z-index: 99
       background: #fff
@@ -210,13 +217,13 @@ export default {
         padding: 0 4%
         font-size: .2rem
         .m_nav_item, .search_on
-          // height: 0.58rem
           z-index: 100
           line-height: 0.58rem
           .ico_down
             color: rgb(197, 197, 197)
             margin-left: .1rem
           .list
+            z-index: 0
             .list_item
               border-top: 0.01rem solid #b8b8b8
               line-height: .55rem
@@ -237,17 +244,25 @@ export default {
           background: #eaeaea
           vertical-align: middle
           color: #666666
-  .m_nav_b
-    background-color: #000101
-    border-bottom: .01rem solid #232323
     .m_nav_menu_b
       background: #191919
       color: #fff
+  .in-enter-active, .in-leave-active
+    transition: all .3s
+  .in-enter, .in-leave-to
+    opacity: 0
+    // transform: translateY(-100%)
+  .lis-enter-active, .lis-leave-active
+    transition: opacity .1s
+  .lis-enter, .lis-leave-to
+    // height: 0
+    opacity: 0
+    // transform: translateY(-100%)
 @media only screen and (max-width: 768px)
   .m_nav
     position: relative
     .m_nav_w, .m_nav_b
-      .m_nav_logo
+      .m_nav_logo, .m_nav_logo_b
         .m_nav_bar
           height: 1rem
           line-height: 1rem
