@@ -51,6 +51,10 @@ export default new Router({
         path: '/product',
         name: 'product',
         component: () => import('@/pages/product/product')
+      }, {
+        path: '/consumer',
+        name: 'consumer',
+        component: () => import('@/pages/consumer/consumer')
       }]
     }
   ]

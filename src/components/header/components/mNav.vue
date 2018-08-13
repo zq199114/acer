@@ -17,7 +17,7 @@
         <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}"
              v-for="(item, index) in wnavList" :key="index" class="m_nav_list"
         >
-        <transition name="lis">
+        <!--<transition name="lis">-->
           <router-link tag="div" :to="item.url" class="m_nav_item" @click.native="showPull(index)">
             {{item.title}}<Icon v-if="item.children" type="chevron-down" class="ico_down"></Icon>
             <transition name="in">
@@ -28,7 +28,7 @@
               </div>
             </transition>
           </router-link>
-        </transition>
+        <!--</transition>-->
         </Col>
         <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}" class="search">
           <div class="search_on">
@@ -50,17 +50,20 @@
           <Icon type="drag" class="ico" @click="showMenu"></Icon>
         </Col>
       </Row>
-      <Row class="m_nav_menu_b" v-show="show">
+      <up-down>
+        <Row class="m_nav_menu_b" v-show="show">
         <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}"
              v-for="(item, index) in bnavList" :key="index" class="m_nav_list"
         >
           <router-link tag="div" :to="item.url" class="m_nav_item"  @click.native="showPull(index)">
             {{item.title}}<Icon v-if="item.children" type="chevron-down" class="ico_down"></Icon>
-            <div class="list" v-if="index===cindex">
+            <transition name="in">
+              <div class="list" v-if="index===cindex">
               <div @click.stop="toPage(it.url, index)" v-if="item.children" class="list_item" v-for="(it, index) of item.children" :key="index">
                 {{it.title}}
               </div>
             </div>
+            </transition>
           </router-link>
         </Col>
         <Col :lg="0" :md="0" :xs="{span: 24}" :sm="{span: 24}" class="search">
@@ -69,6 +72,7 @@
           </div>
         </Col>
       </Row>
+      </up-down>
     </div>
   </div>
 </template>
@@ -252,11 +256,11 @@ export default {
   .in-enter, .in-leave-to
     opacity: 0
     // transform: translateY(-100%)
-  .lis-enter-active, .lis-leave-active
-    transition: opacity .1s
-  .lis-enter, .lis-leave-to
+  // .lis-enter-active, .lis-leave-active
+  //   transition: opacity .1s
+  // .lis-enter, .lis-leave-to
     // height: 0
-    opacity: 0
+    // opacity: 0
     // transform: translateY(-100%)
 @media only screen and (max-width: 768px)
   .m_nav

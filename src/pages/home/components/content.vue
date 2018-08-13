@@ -69,7 +69,7 @@ export default {
       }, {
         id: '2',
         imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/e42b6cff28b1ecd03d98319f6277dbda.jpg',
-        url: '/show'
+        url: '/consumer'
       }, {
         id: '3',
         imgUrl: 'https://gwimages.acer.com.cn/uploads/inpic/710b6d8a8ff497d4d983dbdd92557b6d.jpg',
