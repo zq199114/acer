@@ -1,7 +1,9 @@
 <template>
   <div class="consumer">
     <com-swiper :swiperImg="swiperImg"></com-swiper>
-    <con-content v-for="item of 4" :key="item"></con-content>
+    <div class="c_content">
+      <con-content :item="item" v-for="item of 4" :key="item" ref="con"></con-content>
+    </div>
   </div>
 </template>
 
@@ -24,6 +26,11 @@ export default {
         imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180716134811.jpg'
       }]
     }
+  },
+  mounted () {
+    this.$refs.con.forEach(res => {
+      console.log(res)
+    })
   }
 }
 </script>
@@ -32,4 +39,6 @@ export default {
 .consumer
   & /deep/ .banner
     padding-bottom: 37.6%
+  .c_content:last-child
+    background: #000
 </style>

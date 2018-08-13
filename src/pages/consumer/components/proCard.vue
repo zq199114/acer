@@ -38,11 +38,21 @@ export default {
     @include sc(.23rem, #1e1e1e)
     font-weight: 700
     padding-top: .2rem
+    @include noRellipsis()
   .title_desc
     @include sc(.15rem, #969696)
+    @include Rellipsis()
     margin-top: .15rem
     line-height: .2rem
   &:hover
-      .img
-        transform: scale(1.07)
+    .img
+      transform: scale(1.07)
+@media only screen and (max-width: 768px)
+  .pro_card
+    .img
+    .title
+      @include sc(.35rem, #1e1e1e)
+    .title_desc
+      @include sc(.3rem, #969696)
+      line-height: .4rem
 </style>
