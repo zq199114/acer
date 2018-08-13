@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="con_content mw">
     <div class="con_title">暗影骑士（游戏本）</div>
     <div class="con_desc">整机坚固耐用，为粗犷的游戏本带来了品质感</div>
@@ -14,6 +15,7 @@
         <Icon type="ios-arrow-right"></Icon>
       </div>
     </swiper>
+  </div>
   </div>
 </template>
 
@@ -61,7 +63,7 @@ export default {
     line-height: .7rem
     font-weight: 700
     text-align: center
-    margin-top: .25rem
+    padding-top: .25rem
   .con_desc
     @include sc(.15rem, #1e1e1e)
     margin-bottom: .5rem

@@ -27,8 +27,19 @@ export default {
       }]
     }
   },
+  methods: {
+    // 改变背景颜色
+    bgStyle () {
+      this.$refs.con.forEach((res, index) => {
+        if ((index + 1) % 2 === 0) {
+          res.$el.style.backgroundColor = '#f5f5f5'
+        }
+      })
+    }
+  },
   mounted () {
-    this.$refs.con.forEach(res => {
+    this.bgStyle()
+    this.$axios.post('https://api.growingio.com/v2/bd9542a089aa6575/web/action?stm=1534173452483').then(res => {
       console.log(res)
     })
   }
@@ -39,6 +50,4 @@ export default {
 .consumer
   & /deep/ .banner
     padding-bottom: 37.6%
-  .c_content:last-child
-    background: #000
 </style>
