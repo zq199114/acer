@@ -4,7 +4,7 @@
     <div class="con_title">暗影骑士（游戏本）</div>
     <div class="con_desc">整机坚固耐用，为粗犷的游戏本带来了品质感</div>
     <!--:class="{'swiper_active': number.length<4}"用来判断是否加上justify-content: center-->
-    <swiper :options="swiperOption" ref="mySwiper" class="swiper_ooo" :class="{'swiper_active': number.length<4}">
+    <swiper :options="swiperOption" ref="mySwiper" class="swiper_ooo" :class="{'swiper_active': number<4}">
       <swiper-slide v-for="item in number" v-bind:key="item">
         <pro-card></pro-card>
       </swiper-slide>
@@ -27,11 +27,10 @@ export default {
     proCard
   },
   props: {
-    item: Number
+    number: Number
   },
   data () {
     return {
-      number: [1, 2, 3, 5, 7],
       swiperOption: {
         slidesPerView: 'auto',
         // spaceBetween: '1%',

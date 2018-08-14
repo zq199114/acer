@@ -2,7 +2,7 @@
   <div class="consumer">
     <com-swiper :swiperImg="swiperImg"></com-swiper>
     <div class="c_content">
-      <con-content :item="item" v-for="item of 4" :key="item" ref="con"></con-content>
+      <con-content :number="item" v-for="item of 5" :key="item" ref="con"></con-content>
     </div>
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
   },
   data () {
     return {
+      number: 5,
       swiperImg: [{
         id: 1,
         imgUrl: 'https://gwimages.acer.com.cn/FTP_file/media_File/20180716134722.jpg'
@@ -39,9 +40,6 @@ export default {
   },
   mounted () {
     this.bgStyle()
-    this.$axios.post('https://api.growingio.com/v2/bd9542a089aa6575/web/action?stm=1534173452483').then(res => {
-      console.log(res)
-    })
   }
 }
 </script>
